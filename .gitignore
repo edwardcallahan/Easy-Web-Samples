@@ -1,0 +1,15 @@
+.DS_Store
+*.class
+*#*
+*~
+logs
+samples
+common/deployments.js
+common/packages/example/myButton.js
+projects/*/*.xml
+projects/*/webapproot/timestamp.txt
+projects/*/webapproot/WEB-INF/classes/*
+projects/*/webapproot/WEB-INF/lib/*
+projects/*/phonegap/
+projects/*/export/
+projects/*/dist/
