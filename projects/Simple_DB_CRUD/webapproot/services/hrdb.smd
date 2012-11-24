@@ -1,0 +1,5 @@
+{
+	"methods": [],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "hrdb.json"
+}
