@@ -1,0 +1,36 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.custpurchasedb.data.Customer" table="customer" dynamic-insert="false" dynamic-update="false">
+        <id name="custid" type="integer">
+            <column name="custid"/>
+            <generator class="identity"/>
+        </id>
+        <property name="company" type="string">
+            <column name="company" length="60" not-null="true"/>
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="60"/>
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="60"/>
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="60"/>
+        </property>
+        <property name="zip" type="string">
+            <column name="zip" length="10"/>
+        </property>
+        <property name="imageurl" type="string">
+            <column name="imageurl"/>
+        </property>
+        <property name="twitter" type="string">
+            <column name="twitter" length="64"/>
+        </property>
+        <set name="purchases" inverse="true" cascade="">
+            <key>
+                <column name="custid" not-null="true"/>
+            </key>
+            <one-to-many class="com.custpurchasedb.data.Purchase"/>
+        </set>
+    </class>
+</hibernate-mapping>

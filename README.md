@@ -13,6 +13,7 @@ git clone https://github.com/edwardcallahan/Easy-Web-Samples
 Set your WaveMaker Home Folder (under File, Prerences) to the Easy-Web-Samples folder
 
 **LICENSE**
+
 Copyright 2012 Edward Callahan
 
 Licensed under the Apache License, Version 2.0 (the "License");

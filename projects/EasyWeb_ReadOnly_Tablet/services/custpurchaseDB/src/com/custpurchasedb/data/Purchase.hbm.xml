@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.custpurchasedb.data.Purchase" table="purchase" dynamic-insert="false" dynamic-update="false">
+        <id name="orderid" type="integer">
+            <column name="orderid"/>
+            <generator class="identity"/>
+        </id>
+        <property name="orderdate" type="date">
+            <column name="orderdate" length="10"/>
+        </property>
+        <many-to-one name="customer" class="com.custpurchasedb.data.Customer">
+            <column name="custid" not-null="true"/>
+        </many-to-one>
+        <set name="lineitems" inverse="true" cascade="">
+            <key>
+                <column name="orderid" not-null="true"/>
+            </key>
+            <one-to-many class="com.custpurchasedb.data.Lineitem"/>
+        </set>
+    </class>
+</hibernate-mapping>
