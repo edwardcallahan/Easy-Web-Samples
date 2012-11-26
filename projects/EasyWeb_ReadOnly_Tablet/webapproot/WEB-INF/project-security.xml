@@ -70,7 +70,8 @@
             <value>
                 CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
                 PATTERN_TYPE_APACHE_ANT
-                /runtimeservice.json=IS_AUTHENTICATED_ANONYMOUSLY
+                /services/runtimeservice.json=IS_AUTHENTICATED_ANONYMOUSLY
+                /getcpuserbyid.json=ROLE_admin
                 /custpurchasedb.json=IS_AUTHENTICATED_ANONYMOUSLY
                 /*.upload=IS_AUTHENTICATED_FULLY
                 /*.download=IS_AUTHENTICATED_FULLY
