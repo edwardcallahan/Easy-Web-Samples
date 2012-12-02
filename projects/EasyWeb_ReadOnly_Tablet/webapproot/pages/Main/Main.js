@@ -4,5 +4,9 @@ dojo.declare("Main", wm.Page, {
 	},
 	"preferredDevice": "tablet",
 
+    // Database value does not contain @, add it
+	labelTwitterReadOnlyNodeFormat: function(inSender, inValue) {
+		return("@" + inValue);
+	},
 	_end: 0
 });
