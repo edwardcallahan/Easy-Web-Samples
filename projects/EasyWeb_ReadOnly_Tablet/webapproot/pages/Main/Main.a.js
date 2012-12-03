@@ -26,12 +26,12 @@ wire: ["wm.Wire", {"expression":undefined,"source":"purchaseDojoGrid.selectedIte
 }]
 }],
 layoutBox1: ["wm.Layout", {"horizontalAlign":"left","verticalAlign":"top"}, {}, {
-panel1: ["wm.Panel", {"height":"60px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"middle","width":"100%"}, {}, {
+panel1: ["wm.Panel", {"height":"60px","horizontalAlign":"center","layoutKind":"left-to-right","styles":{"backgroundColor":"#a0c0e0"},"verticalAlign":"middle","width":"100%"}, {}, {
 labelTitle: ["wm.Label", {"caption":"CRM Simple","height":"30px","padding":"4","styles":{"fontWeight":"bold","fontSize":"24px","textAlign":"center"},"width":"100%"}, {}]
 }],
 panel2: ["wm.Panel", {"height":"100%","horizontalAlign":"left","layoutKind":"left-to-right","styles":{"fontWeight":"bold","fontSize":"16px"},"verticalAlign":"top","width":"100%"}, {}, {
 layers1: ["wm.Layers", {"margin":"3,0,0,0"}, {}, {
-layer1: ["wm.Layer", {"borderColor":"","caption":"layer1","horizontalAlign":"center","themeStyleType":"","verticalAlign":"top"}, {}, {
+layerCustomer: ["wm.Layer", {"borderColor":"","caption":"layer1","horizontalAlign":"center","themeStyleType":"","verticalAlign":"top"}, {}, {
 panel4: ["wm.Panel", {"height":"60px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"middle","width":"100%"}, {}, {
 label4: ["wm.Label", {"align":"center","padding":"4","styles":{"fontSize":"18px"},"width":"100%"}, {}, {
 binding: ["wm.Binding", {}, {}, {
@@ -51,16 +51,16 @@ wire1: ["wm.Wire", {"expression":"'https://twitter.com/' + ${labelTwitter.captio
 }]
 }],
 custpurchaseDBLivePanel: ["wm.LivePanel", {"border":"4","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top"}, {}, {
-customerDojoGrid: ["wm.List", {"_classes":{"domNode":["GridListStyle"]},"border":"1","columns":[{"show":false,"field":"custid","title":"Custid","width":"80px","align":"right","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"company","title":"Company","width":"100%","align":"left","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":true},{"show":false,"field":"address","title":"Address","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"city","title":"City","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"state","title":"State","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"zip","title":"Zip","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"imageurl","title":"Imageurl","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"twitter","title":"Twitter","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"","mobileColumn":false}],"height":"100%","selectFirstRow":true,"width":"200px"}, {}, {
+customerDojoGrid: ["wm.List", {"_classes":{"domNode":["GridListStyle"]},"border":"1","columns":[{"show":false,"field":"custid","title":"Custid","width":"80px","align":"right","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"company","title":"Company","width":"100%","align":"left","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":true},{"show":false,"field":"address","title":"Address","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"city","title":"City","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"state","title":"State","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"zip","title":"Zip","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"imageurl","title":"Imageurl","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"twitter","title":"Twitter","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"","mobileColumn":false}],"height":"100%","selectFirstRow":true,"width":"84px"}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"source":"customerLiveVariable1","targetProperty":"dataSet"}, {}]
 }]
 }],
 customerLiveForm1Panel: ["wm.Panel", {"height":"100%","horizontalAlign":"left","verticalAlign":"top","width":"100%"}, {}, {
 layers2: ["wm.Layers", {}, {}, {
-layer5: ["wm.Layer", {"borderColor":"","caption":"layer5","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {}, {
+layerPurch: ["wm.Layer", {"borderColor":"","caption":"layer5","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {}, {
 custpurchaseDBLivePanel1: ["wm.LivePanel", {"horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top"}, {}, {
-purchaseDojoGrid: ["wm.List", {"_classes":{"domNode":["GridListStyle"]},"border":"1","columns":[{"show":false,"field":"orderid","title":"Orderid","width":"80px","align":"right","formatFunc":"","mobileColumn":false},{"show":true,"field":"orderdate","title":"Date","width":"80px","align":"left","formatFunc":"wm_date_formatter","editorProps":{"restrictValues":true},"mobileColumn":true},{"show":false,"field":"customer.custid","title":"Customer.custid","width":"80px","align":"right","formatFunc":"","mobileColumn":false},{"show":false,"field":"customer.company","title":"Customer.company","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"customer.address","title":"Customer.address","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"customer.city","title":"Customer.city","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"customer.state","title":"Customer.state","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"customer.zip","title":"Customer.zip","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"customer.imageurl","title":"Customer.imageurl","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"customer.twitter","title":"Customer.twitter","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","formatFunc":"wm_date_formatter","formatProps":{"formatLength":"medium","dateType":"date"},"expression":"","mobileColumn":false}],"height":"100%","selectFirstRow":true,"width":"200px"}, {}, {
+purchaseDojoGrid: ["wm.List", {"_classes":{"domNode":["GridListStyle"]},"border":"1","columns":[{"show":false,"field":"orderid","title":"Orderid","width":"100%","align":"right","formatFunc":"","mobileColumn":false},{"show":true,"field":"orderdate","title":"Date","width":"80px","align":"left","formatFunc":"wm_date_formatter","editorProps":{"restrictValues":true},"mobileColumn":true},{"show":false,"field":"customer.custid","title":"Customer.custid","width":"80px","align":"right","formatFunc":"","mobileColumn":false},{"show":false,"field":"customer.company","title":"Customer.company","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"customer.address","title":"Customer.address","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"customer.city","title":"Customer.city","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"customer.state","title":"Customer.state","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"customer.zip","title":"Customer.zip","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"customer.imageurl","title":"Customer.imageurl","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"customer.twitter","title":"Customer.twitter","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","formatFunc":"wm_date_formatter","formatProps":{"formatLength":"medium","dateType":"date"},"expression":"","mobileColumn":false}],"height":"100%","selectFirstRow":true,"width":"60px"}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"source":"purchaseLiveVariable1","targetProperty":"dataSet"}, {}]
 }]
@@ -68,20 +68,20 @@ wire: ["wm.Wire", {"source":"purchaseLiveVariable1","targetProperty":"dataSet"},
 purchaseLiveForm1Panel: ["wm.Panel", {"height":"100%","horizontalAlign":"left","verticalAlign":"top","width":"100%"}, {}, {
 layers3: ["wm.Layers", {}, {}, {
 layer7: ["wm.Layer", {"borderColor":"","caption":"layer7","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {}, {
-lineItemDojoGrid: ["wm.DojoGrid", {"columns":[{"show":false,"field":"id.orderid","title":"Orderid","width":"80px","align":"right","formatFunc":"","mobileColumn":false},{"show":true,"field":"quantity","title":"Qnty","width":"60px","align":"right","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":false,"field":"id.itemid","title":"Itemid","width":"80px","align":"right","formatFunc":"","mobileColumn":false},{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>Qnty: \" + ${quantity} + \"</div>\"\n+ \"<div class='MobileRow'>Item: \" + ${item.itemname} + \"</div>\"\n+ \"<div class='MobileRow'>Price: \" + wm.List.prototype.currencyFormatter({}, null,null,null,${item.price}) + \"</div>\"\n","mobileColumn":false},{"show":false,"field":"item.itemid","title":"Item.itemid","width":"80px","align":"right","formatFunc":"","mobileColumn":false},{"show":true,"field":"item.itemname","title":"Item","width":"100%","align":"left","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"item.price","title":"Price","width":"80px","align":"right","formatFunc":"wm_currency_formatter","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"customFieldTotal","title":"Total","width":"100%","align":"left","formatFunc":"wm_currency_formatter","editorProps":{"restrictValues":true},"expression":"${quantity}*${item.price}","isCustomField":true,"mobileColumn":false}],"height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60,"selectFirstRow":true,"singleClickEdit":true}, {}, {
+lineItemDojoGrid: ["wm.DojoGrid", {"border":"0","columns":[{"show":false,"field":"id.orderid","title":"Orderid","width":"80px","align":"right","formatFunc":"","mobileColumn":false},{"show":true,"field":"quantity","title":"Qty","width":"30px","align":"center","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":false,"field":"id.itemid","title":"Itemid","width":"80px","align":"right","formatFunc":"","mobileColumn":false},{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"\"<div class='MobileRowTitle'>Qty: \" + ${quantity} + \"</div>\"\n+ \"<div class='MobileRow'>Item: \" + ${item.itemname} + \"</div>\"\n+ \"<div class='MobileRow'>Price: \" + wm.List.prototype.currencyFormatter({}, null,null,null,${item.price}) + \"</div>\"\n","mobileColumn":false},{"show":false,"field":"item.itemid","title":"Item.itemid","width":"80px","align":"right","formatFunc":"","mobileColumn":false},{"show":true,"field":"item.itemname","title":"Item","width":"100%","align":"center","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"item.price","title":"Price","width":"60px","align":"center","formatFunc":"wm_currency_formatter","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"customFieldTotal","title":"Total","width":"60px","align":"center","formatFunc":"wm_currency_formatter","editorProps":{"restrictValues":true},"expression":"${quantity}*${item.price}","isCustomField":true,"mobileColumn":false}],"height":"100%","localizationStructure":{},"margin":"0","minDesktopHeight":60,"selectFirstRow":true,"singleClickEdit":true}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"lineitemLiveVariable1","targetProperty":"dataSet"}, {}]
 }]
 }]
 }],
-layer6: ["wm.Layer", {"borderColor":"","caption":"layer6","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {}, {
+layerPurchEdit: ["wm.Layer", {"borderColor":"","caption":"layer6","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {}, {
 purchaseLiveForm1: ["wm.LiveForm", {"autoScroll":true,"enableTouchHeight":true,"height":"100%","horizontalAlign":"center","readonly":true,"verticalAlign":"top"}, {"onSuccess":"purchaseLiveVariable1"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"purchaseDojoGrid.selectedItem","targetProperty":"dataSet"}, {}]
 }],
 orderidEditor1: ["wm.Number", {"caption":"Orderid","captionSize":"140px","changeOnKey":true,"dataValue":0,"desktopHeight":"26px","emptyValue":"zero","formField":"orderid","height":"35px","readonly":true,"required":true,"width":"100%"}, {}],
-orderdateEditor1: ["wm.DateTime", {"caption":"Orderdate","captionSize":"140px","dateMode":"Date","desktopHeight":"26px","emptyValue":"zero","formField":"orderdate","height":"35px","readonly":true,"width":"100%"}, {}],
-customerLookup1: ["wm.Lookup", {"caption":"Customer","captionSize":"140px","dataType":"com.custpurchasedb.data.Customer","dataValue":undefined,"desktopHeight":"35px","displayField":"city","formField":"customer","height":"35px","readonly":true,"required":true,"width":"100%"}, {}],
+orderdateEditor1: ["wm.DateTime", {"caption":"Order Date","captionSize":"140px","dateMode":"Date","desktopHeight":"26px","emptyValue":"zero","formField":"orderdate","height":"35px","readonly":true,"width":"100%"}, {}],
+customerLookup1: ["wm.Lookup", {"caption":"Customer","captionSize":"140px","dataType":"com.custpurchasedb.data.Customer","dataValue":undefined,"desktopHeight":"35px","displayField":"company","formField":"customer","height":"35px","readonly":true,"required":true,"width":"100%"}, {}],
 purchaseSpacer: ["wm.Spacer", {"height":"100%","width":"10px"}, {}],
 purchaseLiveForm1EditPanel: ["wm.EditPanel", {"desktopHeight":"32px","liveForm":"purchaseLiveForm1","operationPanel":"operationPanel2","savePanel":"savePanel2"}, {}, {
 savePanel2: ["wm.Panel", {"height":"100%","horizontalAlign":"right","layoutKind":"left-to-right","showing":false,"verticalAlign":"top","width":"100%"}, {}, {
@@ -112,7 +112,7 @@ wire: ["wm.Wire", {"expression":undefined,"source":"purchaseLiveForm1EditPanel.f
 }]
 }]
 }],
-layer4: ["wm.Layer", {"borderColor":"","caption":"layer4","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {}, {
+layerCustomerEdit: ["wm.Layer", {"borderColor":"","caption":"layer4","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {}, {
 customerLiveForm1: ["wm.LiveForm", {"autoScroll":true,"enableTouchHeight":true,"height":"100%","horizontalAlign":"center","readonly":true,"verticalAlign":"top"}, {"onSuccess":"customerLiveVariable1"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"customerDojoGrid.selectedItem","targetProperty":"dataSet"}, {}]
@@ -152,15 +152,21 @@ wire: ["wm.Wire", {"expression":undefined,"source":"customerLiveForm1EditPanel.f
 }]
 }]
 }]
+}],
+toggleButtonPanel2: ["wm.ToggleButtonPanel", {"horizontalAlign":"left","manageHistory":true,"manageURL":true,"margin":"0,1,0,0","verticalAlign":"top"}, {}, {
+binding: ["wm.Binding", {}, {}, {
+wire: ["wm.Wire", {"expression":undefined,"source":"navButtonCompanies","targetProperty":"currentButton"}, {}]
+}],
+navButtonCompanies1: ["wm.Button", {"border":"0,1,0,0","caption":"New Customer","height":"100%","margin":"0","width":"100%"}, {"onclick":"layerCustomerEdit","onclick1":"customerLiveForm1.beginDataInsert"}],
+navButton4: ["wm.Button", {"border":"0,1,0,0","caption":"New Order","height":"100%","margin":"0","width":"100%"}, {"onclick":"layerPurchEdit","onclick1":"purchaseLiveForm1.beginDataInsert"}]
 }]
 }],
-layer2: ["wm.Layer", {"borderColor":"","caption":"layer2","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {}, {
-label2: ["wm.Label", {"caption":"PageContainer1 is below this label","padding":"4","styles":{"fontWeight":"bold","fontSize":"16px","textAlign":"center"},"width":"100%"}, {}],
-pageContainer1: ["wm.PageContainer", {"deferLoad":true}, {}]
+layerItems: ["wm.Layer", {"borderColor":"","caption":"layer2","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {}, {
+pageContainer1: ["wm.PageContainer", {"deferLoad":true,"pageName":"PageItems","subpageEventlist":{},"subpageMethodlist":{},"subpageProplist":{}}, {}]
 }],
 layer3: ["wm.Layer", {"borderColor":"","caption":"layer3","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {}, {
 label3: ["wm.Label", {"caption":"PageContainer2 is below this label","padding":"4","styles":{"fontWeight":"bold","fontSize":"16px","textAlign":"center"},"width":"100%"}, {}],
-pageContainer2: ["wm.PageContainer", {"deferLoad":true}, {}]
+pageContainer2: ["wm.PageContainer", {"deferLoad":true,"pageName":"PageItems","subpageEventlist":{},"subpageMethodlist":{},"subpageProplist":{}}, {}]
 }]
 }]
 }],
@@ -169,8 +175,8 @@ toggleButtonPanel1: ["wm.ToggleButtonPanel", {"horizontalAlign":"left","manageHi
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"navButtonCompanies","targetProperty":"currentButton"}, {}]
 }],
-navButtonCompanies: ["wm.Button", {"border":"0,1,0,0","caption":"Companies","height":"100%","margin":"0","width":"100%"}, {"onclick":"layer1"}],
-navButton2: ["wm.Button", {"border":"0,1,0,0","caption":"Layer Two","height":"100%","margin":"0","width":"100%"}, {"onclick":"layer2"}],
+navButtonCompanies: ["wm.Button", {"border":"0,1,0,0","caption":"Companies","height":"100%","margin":"0","width":"100%"}, {"onclick":"layerCustomer","onclick1":"layerPurch"}],
+navButton2: ["wm.Button", {"border":"0,1,0,0","caption":"Items","height":"100%","margin":"0","width":"100%"}, {"onclick":"layerItems"}],
 navButton3: ["wm.Button", {"border":"0","caption":"Layer Three","height":"100%","margin":"0","width":"100%"}, {"onclick":"layer3"}]
 }]
 }]
