@@ -10,7 +10,7 @@ dojo.declare("EasyWeb_ReadOnly_Tablet", wm.Application, {
 	"name": "", 
 	"phoneGapLoginPage": "Login", 
 	"phoneMain": "", 
-	"projectSubVersion": "Alpha", 
+	"projectSubVersion": "Alpha0", 
 	"projectVersion": 1, 
 	"studioVersion": "6.5.1.Release", 
 	"tabletMain": "", 
