@@ -1,0 +1,13 @@
+{
+	"methods": [{
+		"name": "getCpUserById",
+		"operationType": "hqlquery",
+		"parameters": [{
+			"name": "id",
+			"type": "java.lang.String"
+		}],
+		"returnType": "com.custpurchasedb.data.CpUser"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "custpurchaseDB.json"
+}
