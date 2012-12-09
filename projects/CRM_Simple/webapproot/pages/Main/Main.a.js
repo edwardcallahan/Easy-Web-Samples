@@ -152,7 +152,7 @@ binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"lineitemLiveVariableInsert","targetProperty":"serviceVariable"}, {}]
 }],
 label1: ["wm.Label", {"caption":"Add Item to Order","padding":"4"}, {}],
-ItemQtyEditor: ["wm.Number", {"caption":"Quantity","captionSize":"140px","dataValue":0,"desktopHeight":"35px","displayValue":"","emptyValue":"zero","height":"35px","width":"100%"}, {}],
+ItemQtyEditor: ["wm.Number", {"caption":"Quantity","captionSize":"140px","dataValue":0,"desktopHeight":"35px","displayValue":"0","emptyValue":"zero","height":"35px","width":"100%"}, {}],
 ItemSelectMenu: ["wm.SelectMenu", {"caption":"Item","captionSize":"140px","dataType":"com.custpurchasedb.data.Item","dataValue":undefined,"desktopHeight":"35px","displayField":"itemname","displayValue":"","height":"35px","width":"100%"}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"liveVariableItem","targetProperty":"dataSet"}, {}]

@@ -10,7 +10,7 @@ dojo.declare("CRM_Simple", wm.Application, {
 	"name": "", 
 	"phoneGapLoginPage": "Login", 
 	"phoneMain": "", 
-	"projectSubVersion": "Alpha0", 
+	"projectSubVersion": "Alpha3", 
 	"projectVersion": 1, 
 	"studioVersion": "6.5.1.Release", 
 	"tabletMain": "", 
