@@ -265,29 +265,9 @@ wm.types = {
 			"internal": true,
 			"primitiveType": "String"
 		},
-		"com.custpurchasedb.data.CpUser": {
+		"com.hrdb.data.Department": {
 			"fields": {
-				"pword": {
-					"exclude": [],
-					"fieldOrder": 1,
-					"fieldSubType": null,
-					"include": [],
-					"isList": false,
-					"noChange": [],
-					"required": false,
-					"type": "java.lang.String"
-				},
-				"uname": {
-					"exclude": [],
-					"fieldOrder": 0,
-					"fieldSubType": null,
-					"include": ["delete", "read", "update", "insert"],
-					"isList": false,
-					"noChange": ["delete", "read", "update"],
-					"required": true,
-					"type": "java.lang.String"
-				},
-				"urole": {
+				"budget": {
 					"exclude": [],
 					"fieldOrder": 2,
 					"fieldSubType": null,
@@ -295,86 +275,9 @@ wm.types = {
 					"isList": false,
 					"noChange": [],
 					"required": false,
-					"type": "java.lang.String"
-				}
-			},
-			"internal": false,
-			"liveService": true,
-			"service": "custpurchaseDB"
-		},
-		"com.custpurchasedb.data.Customer": {
-			"fields": {
-				"address": {
-					"exclude": [],
-					"fieldOrder": 2,
-					"fieldSubType": null,
-					"include": [],
-					"isList": false,
-					"noChange": [],
-					"required": false,
-					"type": "java.lang.String"
-				},
-				"city": {
-					"exclude": [],
-					"fieldOrder": 3,
-					"fieldSubType": null,
-					"include": [],
-					"isList": false,
-					"noChange": [],
-					"required": false,
-					"type": "java.lang.String"
-				},
-				"company": {
-					"exclude": [],
-					"fieldOrder": 1,
-					"fieldSubType": null,
-					"include": [],
-					"isList": false,
-					"noChange": [],
-					"required": true,
-					"type": "java.lang.String"
-				},
-				"custid": {
-					"exclude": ["insert"],
-					"fieldOrder": 0,
-					"fieldSubType": null,
-					"include": ["delete", "read", "update"],
-					"isList": false,
-					"noChange": ["delete", "read", "update"],
-					"required": true,
 					"type": "java.lang.Integer"
 				},
-				"imageurl": {
-					"exclude": [],
-					"fieldOrder": 6,
-					"fieldSubType": null,
-					"include": [],
-					"isList": false,
-					"noChange": [],
-					"required": false,
-					"type": "java.lang.String"
-				},
-				"purchases": {
-					"exclude": [],
-					"fieldOrder": 8,
-					"fieldSubType": null,
-					"include": [],
-					"isList": true,
-					"noChange": [],
-					"required": false,
-					"type": "com.custpurchasedb.data.Purchase"
-				},
-				"state": {
-					"exclude": [],
-					"fieldOrder": 4,
-					"fieldSubType": null,
-					"include": [],
-					"isList": false,
-					"noChange": [],
-					"required": false,
-					"type": "java.lang.String"
-				},
-				"twitter": {
+				"deptcode": {
 					"exclude": [],
 					"fieldOrder": 7,
 					"fieldSubType": null,
@@ -384,24 +287,7 @@ wm.types = {
 					"required": false,
 					"type": "java.lang.String"
 				},
-				"zip": {
-					"exclude": [],
-					"fieldOrder": 5,
-					"fieldSubType": null,
-					"include": [],
-					"isList": false,
-					"noChange": [],
-					"required": false,
-					"type": "java.lang.String"
-				}
-			},
-			"internal": false,
-			"liveService": true,
-			"service": "custpurchaseDB"
-		},
-		"com.custpurchasedb.data.Item": {
-			"fields": {
-				"itemid": {
+				"deptid": {
 					"exclude": ["insert"],
 					"fieldOrder": 0,
 					"fieldSubType": null,
@@ -411,7 +297,27 @@ wm.types = {
 					"required": true,
 					"type": "java.lang.Integer"
 				},
-				"itemname": {
+				"employees": {
+					"exclude": [],
+					"fieldOrder": 10,
+					"fieldSubType": null,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.hrdb.data.Employee"
+				},
+				"location": {
+					"exclude": [],
+					"fieldOrder": 8,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"name": {
 					"exclude": [],
 					"fieldOrder": 1,
 					"fieldSubType": null,
@@ -421,128 +327,308 @@ wm.types = {
 					"required": false,
 					"type": "java.lang.String"
 				},
-				"lineitems": {
+				"q1": {
 					"exclude": [],
 					"fieldOrder": 3,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"q2": {
+					"exclude": [],
+					"fieldOrder": 4,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"q3": {
+					"exclude": [],
+					"fieldOrder": 5,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"q4": {
+					"exclude": [],
+					"fieldOrder": 6,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"tenantid": {
+					"exclude": [],
+					"fieldOrder": 9,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				}
+			},
+			"internal": false,
+			"liveService": true,
+			"service": "hrdb"
+		},
+		"com.hrdb.data.Employee": {
+			"fields": {
+				"birthdate": {
+					"exclude": [],
+					"fieldOrder": 7,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.util.Date"
+				},
+				"city": {
+					"exclude": [],
+					"fieldOrder": 4,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"department": {
+					"exclude": [],
+					"fieldOrder": 12,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "com.hrdb.data.Department"
+				},
+				"eid": {
+					"exclude": ["insert"],
+					"fieldOrder": 0,
+					"fieldSubType": null,
+					"include": ["delete", "read", "update"],
+					"isList": false,
+					"noChange": ["delete", "read", "update"],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"employee": {
+					"exclude": [],
+					"fieldOrder": 11,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "com.hrdb.data.Employee"
+				},
+				"employees": {
+					"exclude": [],
+					"fieldOrder": 13,
 					"fieldSubType": null,
 					"include": [],
 					"isList": true,
 					"noChange": [],
 					"required": false,
-					"type": "com.custpurchasedb.data.Lineitem"
+					"type": "com.hrdb.data.Employee"
 				},
-				"price": {
+				"firstname": {
+					"exclude": [],
+					"fieldOrder": 1,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"lastname": {
 					"exclude": [],
 					"fieldOrder": 2,
 					"fieldSubType": null,
 					"include": [],
 					"isList": false,
 					"noChange": [],
-					"required": true,
-					"type": "java.math.BigDecimal"
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"picurl": {
+					"exclude": [],
+					"fieldOrder": 8,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"state": {
+					"exclude": [],
+					"fieldOrder": 5,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"street": {
+					"exclude": [],
+					"fieldOrder": 3,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"tenantid": {
+					"exclude": [],
+					"fieldOrder": 10,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"twitterid": {
+					"exclude": [],
+					"fieldOrder": 9,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"vacations": {
+					"exclude": [],
+					"fieldOrder": 14,
+					"fieldSubType": null,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.hrdb.data.Vacation"
+				},
+				"zip": {
+					"exclude": [],
+					"fieldOrder": 6,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
 				}
 			},
 			"internal": false,
 			"liveService": true,
-			"service": "custpurchaseDB"
+			"service": "hrdb"
 		},
-		"com.custpurchasedb.data.Lineitem": {
+		"com.hrdb.data.User": {
 			"fields": {
+				"password": {
+					"exclude": [],
+					"fieldOrder": 2,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"role": {
+					"exclude": [],
+					"fieldOrder": 3,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				},
+				"tenantid": {
+					"exclude": [],
+					"fieldOrder": 4,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"userid": {
+					"exclude": ["insert"],
+					"fieldOrder": 0,
+					"fieldSubType": null,
+					"include": ["delete", "read", "update"],
+					"isList": false,
+					"noChange": ["delete", "read", "update"],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"username": {
+					"exclude": [],
+					"fieldOrder": 1,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
+				}
+			},
+			"internal": false,
+			"liveService": true,
+			"service": "hrdb"
+		},
+		"com.hrdb.data.Vacation": {
+			"fields": {
+				"employee": {
+					"exclude": [],
+					"fieldOrder": 4,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "com.hrdb.data.Employee"
+				},
+				"enddate": {
+					"exclude": [],
+					"fieldOrder": 2,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.util.Date"
+				},
 				"id": {
-					"exclude": [],
+					"exclude": ["insert"],
 					"fieldOrder": 0,
 					"fieldSubType": null,
-					"include": ["delete", "read", "update", "insert"],
-					"isList": false,
-					"noChange": ["delete", "read", "update"],
-					"required": true,
-					"type": "com.custpurchasedb.data.LineitemId"
-				},
-				"item": {
-					"exclude": [],
-					"fieldOrder": 3,
-					"fieldSubType": null,
-					"include": [],
-					"isList": false,
-					"noChange": [],
-					"required": true,
-					"type": "com.custpurchasedb.data.Item"
-				},
-				"purchase": {
-					"exclude": [],
-					"fieldOrder": 2,
-					"fieldSubType": null,
-					"include": [],
-					"isList": false,
-					"noChange": [],
-					"required": true,
-					"type": "com.custpurchasedb.data.Purchase"
-				},
-				"quantity": {
-					"exclude": [],
-					"fieldOrder": 1,
-					"fieldSubType": null,
-					"include": [],
-					"isList": false,
-					"noChange": [],
-					"required": true,
-					"type": "java.lang.Integer"
-				}
-			},
-			"internal": false,
-			"liveService": true,
-			"service": "custpurchaseDB"
-		},
-		"com.custpurchasedb.data.LineitemId": {
-			"fields": {
-				"itemid": {
-					"exclude": [],
-					"fieldOrder": 1,
-					"fieldSubType": null,
-					"include": ["delete", "read", "update", "insert"],
+					"include": ["delete", "read", "update"],
 					"isList": false,
 					"noChange": ["delete", "read", "update"],
 					"required": true,
 					"type": "java.lang.Integer"
 				},
-				"orderid": {
-					"exclude": [],
-					"fieldOrder": 0,
-					"fieldSubType": null,
-					"include": ["delete", "read", "update", "insert"],
-					"isList": false,
-					"noChange": ["delete", "read", "update"],
-					"required": true,
-					"type": "java.lang.Integer"
-				}
-			},
-			"internal": false,
-			"liveService": false,
-			"service": "custpurchaseDB"
-		},
-		"com.custpurchasedb.data.Purchase": {
-			"fields": {
-				"customer": {
-					"exclude": [],
-					"fieldOrder": 2,
-					"fieldSubType": null,
-					"include": [],
-					"isList": false,
-					"noChange": [],
-					"required": true,
-					"type": "com.custpurchasedb.data.Customer"
-				},
-				"lineitems": {
-					"exclude": [],
-					"fieldOrder": 3,
-					"fieldSubType": null,
-					"include": [],
-					"isList": true,
-					"noChange": [],
-					"required": false,
-					"type": "com.custpurchasedb.data.Lineitem"
-				},
-				"orderdate": {
+				"startdate": {
 					"exclude": [],
 					"fieldOrder": 1,
 					"fieldSubType": null,
@@ -552,20 +638,20 @@ wm.types = {
 					"required": false,
 					"type": "java.util.Date"
 				},
-				"orderid": {
-					"exclude": ["insert"],
-					"fieldOrder": 0,
+				"tenantid": {
+					"exclude": [],
+					"fieldOrder": 3,
 					"fieldSubType": null,
-					"include": ["delete", "read", "update"],
+					"include": [],
 					"isList": false,
-					"noChange": ["delete", "read", "update"],
-					"required": true,
+					"noChange": [],
+					"required": false,
 					"type": "java.lang.Integer"
 				}
 			},
 			"internal": false,
 			"liveService": true,
-			"service": "custpurchaseDB"
+			"service": "hrdb"
 		},
 		"double": {
 			"internal": true,
@@ -654,19 +740,18 @@ wm.types = {
 	}
 };
 wm.Application.themeData['wm_coolblue'] = {"wm.ToggleButton":{"border":"1","borderColor":"#333333"},"wm.ToggleButtonPanel":{"border":"1","borderColor":"#333333"},"wm.Button":{"border":"1","borderColor":"#333333","height":"32px"},"wm.Layout":{"border":"0","borderColor":"#333333"},"wm.Bevel":{"bevelSize":"10","border":"1","borderColor":"#333333"},"wm.Splitter":{"bevelSize":"4","border":"1","borderColor":"#333333"},"wm.AccordionDecorator":{"captionBorder":"1","captionBorderColor":"#333333"},"wm.AccordionLayers":{"border":"0","borderColor":"#333333","captionBorder":"2","layerBorder":"1","captionHeight":"30"},"wm.FancyPanel":{"margin":"2","border":"0","borderColor":"#999999","innerBorder":"2","labelHeight":"24"},"wm.TabLayers":{"layersType":"Tabs","margin":"0,2,0,2","clientBorder":"1","border":"0","clientBorderColor":"#999999","headerHeight":"30px","borderColor":"#999999","mobileHeaderHeight":"38px"},"wm.WizardLayers":{"margin":"0,2,0,2","border":"0","clientBorder":"1","clientBorderColor":"#333333"},"wm.Layer":{},"wm.Dialog":{"border":"1","borderColor":"#333333","titlebarBorder":"0,0,1,0","titlebarBorderColor":"#333333","containerClass":"MainContent","titlebarHeight":"22"},"wm.GenericDialog":{"border":"1","borderColor":"#333333","titlebarBorder":"0,0,1,0","titlebarBorderColor":"#333333","footerBorder":"1,0,0,0","footerBorderColor":"#333333","containerClass":"MainContent"},"wm.RichTextDialog":{"border":"1","borderColor":"#333333","titlebarBorder":"0,0,1,0","titlebarBorderColor":"#333333","footerBorder":"1,0,0,0","footerBorderColor":"#333333","containerClass":"MainContent"},"wm.PageDialog":{"border":"1","borderColor":"#333333","titlebarBorder":"0,0,1,0","titlebarBorderColor":"#333333","footerBorder":"1,0,0,0","footerBorderColor":"#333333","noBevel":true,"containerClass":"MainContent"},"wm.DesignableDialog":{"border":"1","borderColor":"#333333","titlebarBorder":"0,0,1,0","titlebarBorderColor":"#333333","footerBorder":"1,0,0,0","footerBorderColor":"#333333","containerClass":"MainContent"},"wm.DojoMenu":{"padding":"0","border":"0","borderColor":"#333333"},"wm.List":{"margin":"0,2,0,2","border":"2","borderColor":"#333333"},"wm.dijit.ProgressBar":{"border":"0","borderColor":"#333333"},"wm.RichText":{"border":"0","borderColor":"#333333"},"wm.RoundedButton":{"border":"0","borderColor":"#333333"},"wm.DataGrid":{"border":"2","borderColor":"#333333"},"wm.Label":{},"wm.Picture":{},"wm.Spacer":{},"wm.Layers":{"border":"0"},"wm.PageContainer":{},"wm.Panel":{"borderColor":"#333333","border":"0"},"wm.CheckBoxEditor":{},"wm.CurrencyEditor":{},"wm.Text":{"border":"0"},"wm.SelectMenu":{"border":"0"},"wm.dijit.Calendar":{},"wm.DojoGrid":{"border":"1","borderColor":"#999999"},"wm.Control":{"borderColor":"#333333"},"wm.BusyButton":{"border":"1","borderColor":"#333333"},"wm.Checkbox":{"border":"0"},"wm.ColorPicker":{"border":"0"},"wm.Currency":{"border":"0"},"wm.Date":{"border":"0"},"wm.Number":{"border":"0"},"wm.RadioButton":{"border":"0"},"wm.Slider":{"border":"0"},"wm.LargeTextArea":{"border":"0"},"wm.Time":{"border":"0"},"wm.WidgetsJsDialog":{"containerClass":"MainContent","border":"1","borderColor":"#333333"},"wm.FileUploadDialog":{"containerClass":"MainContent","border":"1","borderColor":"#333333"},"wm.MainContentPanel":{"border":"1","borderColor":"#ffffff"},"wm.HeaderContentPanel":{"border":"1","borderColor":"#888888"},"wm.EmphasizedContentPanel":{"border":"0","borderColor":"#333333"},"wm.WidgetList":{},"wm.PopupMenuButton":{}};
-dojo.declare("CRM_Simple", wm.Application, {
+dojo.declare("WaveyWeb", wm.Application, {
 	"disableDirtyEditorTracking": false, 
 	"eventDelay": 0, 
 	"i18n": false, 
-	"isLoginPageEnabled": false, 
-	"isSecurityEnabled": true, 
+	"isSecurityEnabled": false, 
 	"main": "Main", 
 	"manageHistory": true, 
 	"manageURL": false, 
 	"name": "", 
 	"phoneGapLoginPage": "Login", 
 	"phoneMain": "", 
-	"projectSubVersion": "Alpha3", 
+	"projectSubVersion": "Alpha", 
 	"projectVersion": 1, 
 	"studioVersion": "6.5.1.Release", 
 	"tabletMain": "", 
@@ -680,8 +765,8 @@ dojo.declare("CRM_Simple", wm.Application, {
 	_end: 0
 });
 
-CRM_Simple.extend({
+WaveyWeb.extend({
 
 	_end: 0
 });
-CRM_Simple.prototype._css = '';
+WaveyWeb.prototype._css = '';
