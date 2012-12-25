@@ -751,7 +751,7 @@ dojo.declare("WaveyWeb", wm.Application, {
 	"name": "", 
 	"phoneGapLoginPage": "Login", 
 	"phoneMain": "", 
-	"projectSubVersion": "Alpha", 
+	"projectSubVersion": "Alpha0", 
 	"projectVersion": 1, 
 	"studioVersion": "6.5.1.Release", 
 	"tabletMain": "", 
@@ -760,7 +760,7 @@ dojo.declare("WaveyWeb", wm.Application, {
 	"touchToClickDelay": 500, 
 	"touchToRightClickDelay": 1500,
 	"widgets": {
-		silkIconList: ["wm.ImageList", {"colCount":39,"height":16,"iconCount":90,"url":"lib/images/silkIcons/silk.png","width":16}, {}]
+		varCurrentUser: ["wm.Variable", {"type":"com.hrdb.data.User"}, {}]
 	},
 	_end: 0
 });
