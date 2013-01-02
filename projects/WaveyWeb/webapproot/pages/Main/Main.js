@@ -7,7 +7,7 @@ dojo.declare("Main", wm.Page, {
     
 	layer1Show: function(inSender) {
 	  //Your on show event code here
-      console.log("Now showing layer 1");
+      logMessage("Now showing layer 1");
 	},
     
     // This function was added by hand for use with connect, above.
@@ -19,3 +19,4 @@ dojo.declare("Main", wm.Page, {
 
 	_end: 0
 });
+eval(wm.load("resources/javascript/shared.js"));
