@@ -6,11 +6,12 @@ dojo.declare("Main", wm.Page, {
 	},
     
 	layer1Show: function(inSender) {
-	  //Your on show event code here
-      logMessage("Now showing layer 1");
+      //this is using the log function defined in waveytools.js
+      waveytools.logMessage("Now showing layer 1");
 	},
     
-    // This function was added by hand for use with connect, above.
+    // this function was added manually
+    // for use with connect in start(), above.
     myMouseOverFunction: function(){
         app.toastInfo("Hey, that tickles !");
     },
@@ -19,4 +20,5 @@ dojo.declare("Main", wm.Page, {
 
 	_end: 0
 });
-eval(wm.load("resources/javascript/shared.js"));
+//added by import js library button in source editor
+eval(wm.load("resources/javascript/waveytools.js"));
