@@ -753,7 +753,7 @@ dojo.declare("WaveyWeb", wm.Application, {
 	"phoneMain": "", 
 	"projectSubVersion": "Alpha0", 
 	"projectVersion": 1, 
-	"studioVersion": "6.5.1.Release", 
+	"studioVersion": "6.5.2.Release", 
 	"tabletMain": "", 
 	"theme": "wm_coolblue", 
 	"toastPosition": "br", 

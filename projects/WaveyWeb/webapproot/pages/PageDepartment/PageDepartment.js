@@ -1,4 +1,4 @@
-dojo.declare("Page2", wm.Page, {
+dojo.declare("PageDepartment", wm.Page, {
 	start: function() {
 		
 	},

@@ -1,6 +1,6 @@
-Page2.widgets = {
+PageRichText.widgets = {
 	layoutBox1: ["wm.Layout", {"horizontalAlign":"left","verticalAlign":"top"}, {}, {
-		label1: ["wm.Label", {"caption":"Welcome to page 2","padding":"4","width":"498px"}, {}],
+		label1: ["wm.Label", {"caption":"Welcome to page Rich Text","padding":"4","width":"498px"}, {}],
 		richText1: ["wm.RichText", {}, {}]
 	}]
 }

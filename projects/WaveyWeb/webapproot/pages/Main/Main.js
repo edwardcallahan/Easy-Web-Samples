@@ -1,12 +1,14 @@
 dojo.declare("Main", wm.Page, {
 	"i18n": true,
 	start: function() {
-	    this.button1.setCaption(this.getDictionaryItem("SCRIPT_Main_continue_button_caption_term"));	
+        //sets the caption on localized layer using dictionary
+	    this.button1.setCaption(this.getDictionaryItem("SCRIPT_Main_continue_button_caption_term"));
+        //connect mouseover event on connect layer to myMouseOverFunction, below
         this.connect(this.labelMouseOver.domNode, "onmouseover", this, "myMouseOverFunction");
 	},
     
-	layer1Show: function(inSender) {
-      //this is using the log function defined in waveytools.js
+    //uses g the log function defined in resource file, waveytools.js
+    layer1Show: function(inSender) {
       waveytools.logMessage("Now showing layer 1");
 	},
     
@@ -17,7 +19,7 @@ dojo.declare("Main", wm.Page, {
     },
     
     "preferredDevice": "desktop",
-
+    
 	_end: 0
 });
 //added by import js library button in source editor
