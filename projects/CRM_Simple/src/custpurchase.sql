@@ -23,31 +23,6 @@ CREATE DATABASE IF NOT EXISTS custpurchase;
 USE custpurchase;
 
 --
--- Table structure for table `cp_user`
---
-
-DROP TABLE IF EXISTS `cp_user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cp_user` (
-  `uname` varchar(30) NOT NULL DEFAULT '',
-  `pword` varchar(30) DEFAULT NULL,
-  `urole` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`uname`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cp_user`
---
-
-LOCK TABLES `cp_user` WRITE;
-/*!40000 ALTER TABLE `cp_user` DISABLE KEYS */;
-INSERT INTO `cp_user` VALUES ('admin','admin','admin'),('manager','manager','manager'),('user','user','user');
-/*!40000 ALTER TABLE `cp_user` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `cpuser`
 --
 
