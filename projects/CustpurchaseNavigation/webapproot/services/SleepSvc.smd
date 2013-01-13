@@ -1,0 +1,13 @@
+{
+	"methods": [{
+		"name": "takeNap",
+		"operationType": null,
+		"parameters": [{
+			"name": "sleepMillis",
+			"type": "long"
+		}],
+		"returnType": null
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "SleepSvc.json"
+}

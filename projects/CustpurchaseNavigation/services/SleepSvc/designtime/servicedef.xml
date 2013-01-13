@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="SleepSvc" class="com.wavemaker.example.SleepService" CRUDService="false" type="JavaService" springFile="SleepSvc.spring.xml">
+    <operation name="takeNap">
+        <parameter name="sleepMillis" typeRef="long" isList="false"/>
+    </operation>
+    <dataobjects/>
+</service>
