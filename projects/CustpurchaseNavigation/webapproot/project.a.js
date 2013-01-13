@@ -657,7 +657,6 @@ CustpurchaseNavigation.extend({
 	_end: 0
 });
 CustpurchaseNavigation.prototype._css = '';
-
 wm.PageContainer.extend({
      generateStateUrl: function(stateObj) {
         if (this.page && this._pageName !== this._initialPageName) {

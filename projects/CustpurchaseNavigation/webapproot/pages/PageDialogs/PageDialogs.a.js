@@ -1,14 +1,20 @@
 dojo.declare("PageDialogs", wm.Page, {
 start: function() {
 },
-"preferredDevice": "desktop",
 buttonDateDialogClick: function(inSender) {
 var today = new Date();
 this.genericDialogModal.setUserPrompt("Today is: " + today.toDateString());
 },
-pageContainer1LayoutBox1Show: function(inSender /*,args*/) {
-debugger;
+designableDialogUsingWidgetsClose: function(inSender, inWhy) {
+console.log("Designable dialog closed with favorite color of: " + this.textFavColor.getDataValue());
 },
+pageContainer1ItemDBFormInsertSuccess1: function(inSender) {
+var newItemName = inSender.page.itemDBForm.getDataOutput().getValue("itemname");
+if (newItemName!==undefined){
+console.log("Newly inserted item: " + newItemName);
+}
+},
+"preferredDevice": "desktop",
 _end: 0
 });
 
@@ -29,16 +35,17 @@ wire1: ["wm.Wire", {"expression":undefined,"source":"panelLoading","targetProper
 }]
 }],
 pageDialog1: ["wm.PageDialog", {"desktopHeight":"300px","height":"300px","pageName":"PageItemInsert","title":"PageDialog","width":"600px"}, {}],
-designableDialogUsingWidgets: ["wm.DesignableDialog", {"buttonBarId":"buttonBar","containerWidgetId":"containerWidget","desktopHeight":"300px","height":"300px","title":"Designable Dialog","width":"480px"}, {}, {
+designableDialogUsingWidgets: ["wm.DesignableDialog", {"buttonBarId":"buttonBar","containerWidgetId":"containerWidget","desktopHeight":"300px","height":"300px","title":"Designable Dialog","width":"480px"}, {"onClose":"designableDialogUsingWidgetsClose"}, {
 containerWidget: ["wm.Container", {"_classes":{"domNode":["wmdialogcontainer","MainContent"]},"autoScroll":true,"height":"100%","horizontalAlign":"center","padding":"5","verticalAlign":"middle","width":"100%"}, {}, {
 labelDDMesage: ["wm.Label", {"caption":"You can add widgets directly to a designable dialog.","padding":"4","width":"300px"}, {}],
+textFavColor: ["wm.Text", {"caption":"Favorite color:","dataValue":undefined,"displayValue":"","placeHolder":"Enter  your favorite color "}, {}],
 buttonDDclose: ["wm.Button", {"caption":"Close","margin":"4"}, {"onclick":"designableDialogUsingWidgets.hide"}]
 }],
 buttonBar: ["wm.Panel", {"_classes":{"domNode":["dialogfooter"]},"border":"1,0,0,0","desktopHeight":"32px","enableTouchHeight":true,"height":"32px","horizontalAlign":"right","layoutKind":"left-to-right","mobileHeight":"40px","verticalAlign":"top","width":"100%"}, {}]
 }],
 designableDialogUsingPageContainer: ["wm.DesignableDialog", {"buttonBarId":"","containerWidgetId":"containerWidget1","desktopHeight":"300px","height":"300px","title":"Page Container in a Designable Dialog","width":"600px"}, {}, {
 containerWidget1: ["wm.Container", {"_classes":{"domNode":["wmdialogcontainer","MainContent"]},"autoScroll":true,"height":"100%","horizontalAlign":"left","padding":"5","verticalAlign":"top","width":"100%"}, {}, {
-pageContainer1: ["wm.PageContainer", {"deferLoad":true,"pageName":"PageItemInsert","subpageEventlist":{"onItemDBFormInsertSuccess":"itemDBForm.onInsertSuccess","onLayoutBox1Show":"layoutBox1.onShow"},"subpageMethodlist":{},"subpageProplist":{}}, {"onItemDBFormCancelEdit":"designableDialogUsingPageContainer.hide","onItemDBFormInsertSuccess":"designableDialogUsingPageContainer.hide","onLayoutBox1Show":"pageContainer1LayoutBox1Show"}]
+pageContainerDesignableDialog: ["wm.PageContainer", {"deferLoad":true,"manageHistory":true,"manageURL":true,"pageName":"PageItemInsert","subpageEventlist":{"onItemDBFormInsertSuccess":"itemDBForm.onInsertSuccess"},"subpageMethodlist":{},"subpageProplist":{}}, {"onItemDBFormInsertSuccess":"designableDialogUsingPageContainer.hide","onItemDBFormInsertSuccess1":"pageContainer1ItemDBFormInsertSuccess1"}]
 }],
 buttonBar1: ["wm.Panel", {"_classes":{"domNode":["dialogfooter"]},"border":"1,0,0,0","desktopHeight":"32px","enableTouchHeight":true,"height":"32px","horizontalAlign":"right","layoutKind":"left-to-right","mobileHeight":"40px","verticalAlign":"top","width":"100%"}, {}]
 }],
