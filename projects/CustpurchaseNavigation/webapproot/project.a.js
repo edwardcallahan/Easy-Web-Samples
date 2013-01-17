@@ -187,7 +187,7 @@ wm.JsonRpcService.smdCache['runtimeService.smd'] = {
 	"serviceType": "JSON-RPC",
 	"serviceURL": "runtimeService.json"
 };
-wm.JsonRpcService.smdCache['waveMakerService.smd'] = {
+wm.JsonRpcService.smdCache['wavemakerService.smd'] = {
 	"methods": [{
 		"name": "echo",
 		"operationType": null,
@@ -638,7 +638,7 @@ dojo.declare("CustpurchaseNavigation", wm.Application, {
 	"name": "", 
 	"phoneGapLoginPage": "Login", 
 	"phoneMain": "", 
-	"projectSubVersion": "Alpha", 
+	"projectSubVersion": "Alpha0", 
 	"projectVersion": 1, 
 	"studioVersion": "6.5.2.Release", 
 	"tabletMain": "", 
@@ -657,12 +657,13 @@ CustpurchaseNavigation.extend({
 	_end: 0
 });
 CustpurchaseNavigation.prototype._css = '';
+
 wm.PageContainer.extend({
      generateStateUrl: function(stateObj) {
         if (this.page && this._pageName !== this._initialPageName) {
             stateObj[app && app.pageContainer == this ? "pageName" : this.getRuntimeId()] = this._pageName;
         }
-        if (this.page.generateStateUrl) {
+        if (this.page && this.page.generateStateUrl) {
             this.page.generateStateUrl(stateObj);
         }    
     },
@@ -703,5 +704,75 @@ wm.PageContainer.extend({
         if (this._isDesignLoaded) {
             this.subscribe("deviceSizeRecalc", dojo.hitch(this, "updatePageName"));
         }
+    }
+});
+wm.Application.extend({
+    doRun: function() {
+        if (wm.isPhonegap) {
+            if (!window["PhoneGap"] && !window["cordova"]) {
+                wm.job("doRun", 100, this, "doRun");
+                return;
+            }
+            /* IFrame added by phonegap build server seems to disrupt touch events */
+            if (document.body.nextSibling && document.body.nextSibling.tagName == "IFRAME") {
+                dojo.destroy(document.body.nextSibling);
+            }
+            dojo["require"]("build.Gzipped.wm_phonegap_misc", true);
+            dojo.forEach(wm.componentFixList._phonegap, function(fix) {
+                try {
+                    fix();
+                } catch (e) {}
+            });
+        }
+        /* Needs to be here rather than postInit because wm.ServiceVariable not loaded in phonegap build until this point */
+        if (!this._isDesignLoaded) {
+            if (wm.serverTimeOffset === undefined) {
+                this.getServerTimeOffset();
+            } else {
+                wm.currentTimeZone = new Date()
+                    .getTimezoneOffset();
+            }
+            window.setInterval(dojo.hitch(this, "_pollForTimezoneChange"), 10000); //3600000); // once per hour check to see if the timezone has changed
+        }
+        this.createPageContainer();
+        this.domNode = this.appRoot.domNode;
+        this.reflow();
+        /* Load all app-level components from project.js */
+        this.loadComponents(this.constructor.widgets || this.widgets);
+        if (!this.debugDialog) {
+            if (this._overrideDebugDialog !== undefined) {
+                if (this._overrideDebugDialog) this.createDebugDialog();
+            } else if (djConfig.isDebug && (wm.device != "phone" || wm.isFakeMobile)) {
+                this.createDebugDialog();
+            }
+        }
+        if (!wm.isPhonegap) {
+            this.pageDialog = new wm.PageDialog({
+                name: "pageDialog",
+                owner: this
+            });
+        }
+        if (dojo.isIE <= 8) {
+            var button = document.createElement("BUTTON");
+            button.style.width = "1px";
+            button.style.height = "1px";
+            this.domNode.appendChild(button);
+        }
+        var main;
+        if (wm.device == "tablet") {
+            main = this.tabletMain;
+        } else if (wm.device == "phone") {
+            main = this.phoneMain;
+        }
+        if (!main) {
+            main = this.main;
+        }
+        this.pageContainer._initialPageName = main;
+        if (window["PhoneGap"] && this.isSecurityEnabled && this.isLoginPageEnabled && this.phoneGapLoginPage) {
+            this.loadPage(this.phoneGapLoginPage);
+        } else {
+            this.loadPage(main);
+        }
+        this.hideLoadingIndicator();
     }
 });

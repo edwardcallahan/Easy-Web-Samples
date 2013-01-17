@@ -34,6 +34,9 @@ this.labelConfirmResult.setCaption("OK, Great!");
 notificationCallConfirmCancel: function(inSender) {
 this.labelConfirmResult.setCaption("Too bad. Maybe next time.");
 },
+notificationCallPromptOk: function(inSender, inResult) {
+this.labelPromptResult.setCaption(inResult);
+},
 _end: 0
 });
 
@@ -83,6 +86,16 @@ wire1: ["wm.Wire", {"expression":undefined,"source":"pageContainerPageContainer"
 }]
 }]
 }],
+notificationCallPrompt: ["wm.NotificationCall", {"operation":"prompt"}, {"onOk":"notificationCallPromptOk"}, {
+input: ["wm.ServiceInput", {"type":"promptInputs"}, {}, {
+binding: ["wm.Binding", {}, {}, {
+wire: ["wm.Wire", {"expression":"\"What is your favorite color?\"","targetProperty":"text"}, {}],
+wire1: ["wm.Wire", {"expression":"\"Green\"","targetProperty":"defaultValue"}, {}],
+wire2: ["wm.Wire", {"expression":"\"OK\"","targetProperty":"OKButtonText"}, {}],
+wire3: ["wm.Wire", {"expression":"\"I don't have one\"","targetProperty":"CancelButtonText"}, {}]
+}]
+}]
+}],
 layoutBox1: ["wm.Layout", {"horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"top"}, {}, {
 panel3: ["wm.Panel", {"height":"100%","horizontalAlign":"left","minHeight":600,"minWidth":900,"verticalAlign":"top","width":"75%"}, {}, {
 panel1: ["wm.HeaderContentPanel", {"border":"0,0,1,0","borderColor":"#333333","height":"65px","horizontalAlign":"left","layoutKind":"left-to-right","padding":"0,10","verticalAlign":"middle","width":"100%"}, {}, {
@@ -110,7 +123,9 @@ buttonToastScriptAdvanced: ["wm.Button", {"caption":"Toast by Script - Advanced"
 }],
 panelConfirm: ["wm.Panel", {"border":"2,2,2,2","borderColor":"#1b0588","height":"60px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"middle","width":"100%"}, {}, {
 buttonConfirm: ["wm.Button", {"caption":"Confirmation","imageIndex":88,"imageList":"app.silkIconList","margin":"4","width":"134px"}, {"onclick":"buttonConfirmClick","onclick1":"notificationCallConfirm"}],
-labelConfirmResult: ["wm.Label", {"align":"center","caption":"","padding":"4","width":"176px"}, {}]
+labelConfirmResult: ["wm.Label", {"align":"center","caption":"","padding":"4","width":"176px"}, {}],
+buttonPrompt: ["wm.Button", {"caption":"Prompt","imageIndex":49,"imageList":"app.silkIconList","margin":"4","width":"97px"}, {"onclick":"notificationCallPrompt"}],
+labelPromptResult: ["wm.Label", {"caption":"","padding":"4"}, {}]
 }]
 }],
 layerPageContainerMenu: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"Page Container","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {

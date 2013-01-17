@@ -24,7 +24,9 @@ dojo.declare("PageCustomerSearchEdit", wm.Page, {
     //Requires 6.5.2 with studio patches 
     generateStateUrl: function(inLocationState) {
         var custid = this.customerDojoGrid.selectedItem.getValue("data.custid");
-        inLocationState[this.getRuntimeId()] = {"custid": custid};    
+        if(custid !== undefined){
+            inLocationState[this.getRuntimeId()] = {"custid": custid}; 
+        }
     },
         
 	customerLiveVariable1Success: function(inSender, inDeprecated) {

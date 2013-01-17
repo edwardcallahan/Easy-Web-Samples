@@ -9,7 +9,7 @@ dojo.declare("CustpurchaseNavigation", wm.Application, {
 	"name": "", 
 	"phoneGapLoginPage": "Login", 
 	"phoneMain": "", 
-	"projectSubVersion": "Alpha0", 
+	"projectSubVersion": "Alpha1", 
 	"projectVersion": 1, 
 	"studioVersion": "6.5.2.Release", 
 	"tabletMain": "", 

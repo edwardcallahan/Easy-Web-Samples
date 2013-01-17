@@ -20,7 +20,9 @@ title:company});
 //Requires 6.5.2 with studio patches
 generateStateUrl: function(inLocationState) {
 var custid = this.customerDojoGrid.selectedItem.getValue("data.custid");
+if(custid !== undefined){
 inLocationState[this.getRuntimeId()] = {"custid": custid};
+}
 },
 customerLiveVariable1Success: function(inSender, inDeprecated) {
 if(this.selectedCustomerID !== -1){

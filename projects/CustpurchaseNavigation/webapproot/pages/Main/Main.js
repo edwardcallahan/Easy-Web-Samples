@@ -39,5 +39,8 @@ dojo.declare("Main", wm.Page, {
         this.labelConfirmResult.setCaption("Too bad. Maybe next time.");		
 	},
 
+	notificationCallPromptOk: function(inSender, inResult) {
+		this.labelPromptResult.setCaption(inResult);
+	},
 	_end: 0
 });
