@@ -187,7 +187,7 @@ wm.JsonRpcService.smdCache['runtimeService.smd'] = {
 	"serviceType": "JSON-RPC",
 	"serviceURL": "runtimeService.json"
 };
-wm.JsonRpcService.smdCache['wavemakerService.smd'] = {
+wm.JsonRpcService.smdCache['waveMakerService.smd'] = {
 	"methods": [{
 		"name": "echo",
 		"operationType": null,
@@ -637,8 +637,8 @@ dojo.declare("CustpurchaseNavigation", wm.Application, {
 	"manageURL": true, 
 	"name": "", 
 	"phoneGapLoginPage": "Login", 
-	"phoneMain": "", 
-	"projectSubVersion": "Alpha0", 
+	"phoneMain": "PageMobile", 
+	"projectSubVersion": "Alpha2", 
 	"projectVersion": 1, 
 	"studioVersion": "6.5.2.Release", 
 	"tabletMain": "", 

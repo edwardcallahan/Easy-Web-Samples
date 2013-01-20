@@ -2,7 +2,7 @@ dojo.declare("PageMobile", wm.Page, {
 	start: function() {
 		
 	},
-	"preferredDevice": "desktop",
+	"preferredDevice": "phone",
 
 	_end: 0
 });

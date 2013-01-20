@@ -94,13 +94,13 @@ Main.widgets = {
 								}]
 							}]
 						}],
-						pageContainerPageContainer: ["wm.PageContainer", {"deferLoad":true}, {}]
+						pageContainerPageContainer: ["wm.PageContainer", {"deferLoad":true,"manageHistory":true}, {}]
 					}],
 					layerLayers: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"Layers","horizontalAlign":"left","verticalAlign":"top"}, {}, {
-						pageContainerLayers: ["wm.PageContainer", {"deferLoad":true,"pageName":"PageLayers","subpageEventlist":{},"subpageMethodlist":{},"subpageProplist":{}}, {}]
+						pageContainerLayers: ["wm.PageContainer", {"deferLoad":true,"manageHistory":true,"pageName":"PageLayers","subpageEventlist":{},"subpageMethodlist":{},"subpageProplist":{}}, {}]
 					}],
 					layerDialogs: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"Dialogs","horizontalAlign":"left","verticalAlign":"top"}, {}, {
-						pageContainerDialogs: ["wm.PageContainer", {"deferLoad":true,"pageName":"PageDialogs","subpageEventlist":{},"subpageMethodlist":{},"subpageProplist":{}}, {}]
+						pageContainerDialogs: ["wm.PageContainer", {"deferLoad":true,"manageHistory":true,"pageName":"PageDialogs","subpageEventlist":{},"subpageMethodlist":{},"subpageProplist":{}}, {}]
 					}],
 					layerURL: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"URL ","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
 						pageContainerURL: ["wm.PageContainer", {"deferLoad":true,"manageHistory":true,"manageURL":true,"pageName":"PageCustomerSearchEdit","subpageEventlist":{},"subpageMethodlist":{},"subpageProplist":{}}, {}]
