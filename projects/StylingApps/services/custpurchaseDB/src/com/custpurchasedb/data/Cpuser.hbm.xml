@@ -1,0 +1,15 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.custpurchasedb.data.Cpuser" table="cpuser" dynamic-insert="false" dynamic-update="false">
+        <id name="uname" type="string">
+            <column name="uname" length="30"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="pword" type="string">
+            <column name="pword" length="30"/>
+        </property>
+        <property name="urole" type="string">
+            <column name="urole" length="30"/>
+        </property>
+    </class>
+</hibernate-mapping>

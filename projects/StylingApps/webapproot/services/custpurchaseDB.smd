@@ -1,0 +1,13 @@
+{
+	"methods": [{
+		"name": "getCpuserById",
+		"operationType": "hqlquery",
+		"parameters": [{
+			"name": "id",
+			"type": "java.lang.String"
+		}],
+		"returnType": "com.custpurchasedb.data.Cpuser"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "custpurchaseDB.json"
+}
