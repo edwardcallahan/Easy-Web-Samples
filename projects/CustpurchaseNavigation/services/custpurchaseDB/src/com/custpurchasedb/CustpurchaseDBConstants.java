@@ -5,11 +5,12 @@ package com.custpurchasedb;
 
 /**
  *  Query names for service "custpurchaseDB"
- *  01/12/2013 08:18:04
+ *  02/02/2013 14:26:48
  * 
  */
 public class CustpurchaseDBConstants {
 
+    public final static String CustomersByStateQueryName = "CustomersByState";
     public final static String getCpuserByIdQueryName = "getCpuserById";
 
 }

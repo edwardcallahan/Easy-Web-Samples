@@ -2,6 +2,7 @@
 package com.custpurchasedb;
 
 import java.util.List;
+import com.custpurchasedb.data.output.CustomersByStateRtnType;
 import com.wavemaker.json.type.TypeDefinition;
 import com.wavemaker.runtime.data.DataServiceManager;
 import com.wavemaker.runtime.data.DataServiceManagerAccess;
@@ -14,7 +15,7 @@ import com.wavemaker.runtime.service.TypedServiceReturn;
 
 /**
  *  Operations for service "custpurchaseDB"
- *  01/12/2013 08:18:04
+ *  02/02/2013 14:26:48
  * 
  */
 @SuppressWarnings("unchecked")
@@ -24,6 +25,10 @@ public class CustpurchaseDB
 
     private DataServiceManager dsMgr;
     private TaskManager taskMgr;
+
+    public List<CustomersByStateRtnType> customersByState(String state) {
+        return ((List<CustomersByStateRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (CustpurchaseDBConstants.CustomersByStateQueryName), state));
+    }
 
     public com.custpurchasedb.data.Cpuser getCpuserById(String id, PagingOptions pagingOptions) {
         List<com.custpurchasedb.data.Cpuser> rtn = ((List<com.custpurchasedb.data.Cpuser> ) dsMgr.invoke(taskMgr.getQueryTask(), (CustpurchaseDBConstants.getCpuserByIdQueryName), id, pagingOptions));

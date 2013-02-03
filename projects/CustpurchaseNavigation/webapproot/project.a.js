@@ -540,6 +540,33 @@ wm.types = {
 			"liveService": true,
 			"service": "custpurchaseDB"
 		},
+		"com.custpurchasedb.data.output.CustomersByStateRtnType": {
+			"fields": {
+				"city": {
+					"exclude": [],
+					"fieldOrder": 1,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"company": {
+					"exclude": [],
+					"fieldOrder": 0,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				}
+			},
+			"internal": false,
+			"liveService": false,
+			"service": "custpurchaseDB"
+		},
 		"double": {
 			"internal": true,
 			"primitiveType": "Number"
@@ -638,7 +665,7 @@ dojo.declare("CustpurchaseNavigation", wm.Application, {
 	"name": "", 
 	"phoneGapLoginPage": "Login", 
 	"phoneMain": "PageMobile", 
-	"projectSubVersion": "Alpha2", 
+	"projectSubVersion": "Alpha3", 
 	"projectVersion": 1, 
 	"studioVersion": "6.5.2.Release", 
 	"tabletMain": "", 

@@ -287,6 +287,33 @@ wm.types = {
 			"liveService": true,
 			"service": "custpurchaseDB"
 		},
+		"com.custpurchasedb.data.output.CustomersByStateRtnType": {
+			"fields": {
+				"city": {
+					"exclude": [],
+					"fieldOrder": 1,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"company": {
+					"exclude": [],
+					"fieldOrder": 0,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				}
+			},
+			"internal": false,
+			"liveService": false,
+			"service": "custpurchaseDB"
+		},
 		"double": {
 			"internal": true,
 			"primitiveType": "Number"

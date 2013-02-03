@@ -13,6 +13,7 @@
                         <value>com.custpurchasedb.data.Item</value>
                         <value>com.custpurchasedb.data.Lineitem</value>
                         <value>com.custpurchasedb.data.Purchase</value>
+                        <value>com.custpurchasedb.data.output.CustomersByStateRtnType</value>
                     </list>
                 </entry>
             </map>

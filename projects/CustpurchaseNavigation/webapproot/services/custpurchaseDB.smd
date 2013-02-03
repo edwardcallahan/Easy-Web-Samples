@@ -1,5 +1,13 @@
 {
 	"methods": [{
+		"name": "customersByState",
+		"operationType": "other",
+		"parameters": [{
+			"name": "state",
+			"type": "java.lang.String"
+		}],
+		"returnType": "[com.custpurchasedb.data.output.CustomersByStateRtnType]"
+	}, {
 		"name": "getCpuserById",
 		"operationType": "hqlquery",
 		"parameters": [{
