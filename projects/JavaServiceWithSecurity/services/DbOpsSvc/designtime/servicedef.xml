@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="DbOpsSvc" class="com.calncal.dbservices.DbOpsSvc" CRUDService="false" type="JavaService" springFile="DbOpsSvc.spring.xml">
+    <operation name="insertCustomer">
+        <parameter name="customer" typeRef="com.custpurchasedb.data.Customer" isList="false"/>
+        <return typeRef="com.custpurchasedb.data.Customer" isList="false"/>
+    </operation>
+    <operation name="setRuntimeSvc">
+        <parameter name="runtimeSvc" typeRef="com.wavemaker.runtime.service.RuntimeService" isList="false"/>
+    </operation>
+    <operation name="setSecuritySvc">
+        <parameter name="securitySvc" typeRef="com.wavemaker.runtime.security.SecurityService" isList="false"/>
+    </operation>
+    <operation name="updateCustomer">
+        <parameter name="customer" typeRef="com.custpurchasedb.data.Customer" isList="false"/>
+        <return typeRef="com.custpurchasedb.data.Customer" isList="false"/>
+    </operation>
+    <dataobjects>
+        <dataobject javaType="com.wavemaker.runtime.service.RuntimeService" name="RuntimeService" supportsQuickData="false">
+            <element name="internalRuntime" typeRef="com.wavemaker.runtime.server.InternalRuntime" isList="false" allowNull="false"/>
+            <element name="localHostIP" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="runtimeAccess" typeRef="com.wavemaker.runtime.RuntimeAccess" isList="false" allowNull="false"/>
+            <element name="serviceEventNotifier" typeRef="com.wavemaker.runtime.service.events.ServiceEventNotifier" isList="false" allowNull="false"/>
+            <element name="serviceManager" typeRef="com.wavemaker.runtime.service.ServiceManager" isList="false" allowNull="false"/>
+            <element name="sessionId" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="typeManager" typeRef="com.wavemaker.runtime.service.TypeManager" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="com.wavemaker.runtime.security.SecurityService" name="SecurityService" supportsQuickData="false">
+            <element name="authenticatedAuthentication" typeRef="org.acegisecurity.Authentication" isList="false" allowNull="false"/>
+            <element name="authenticationManager" typeRef="org.acegisecurity.AuthenticationManager" isList="false" allowNull="false"/>
+            <element name="noRolesMarkerRole" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="roleMap" typeRef="java.util.Map&lt;java.lang.String,java.util.List&lt;com.wavemaker.runtime.security.Rule&gt;&gt;" isList="false" allowNull="false"/>
+            <element name="rolePrefix" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="roles" typeRef="java.lang.String" isList="true" allowNull="false"/>
+            <element name="userId" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="userName" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="userRoles" typeRef="java.lang.String" isList="true" allowNull="false"/>
+            <element name="authenticated" typeRef="boolean" isList="false" allowNull="false"/>
+        </dataobject>
+    </dataobjects>
+</service>
