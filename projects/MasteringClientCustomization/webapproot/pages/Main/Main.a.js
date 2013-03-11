@@ -2,10 +2,6 @@ dojo.declare("Main", wm.Page, {
 start: function() {
 },
 "preferredDevice": "desktop",
-label5ReadOnlyNodeFormat: function(inSender, inValue) {
-var now = new Date();
-return("Application loaded at: " + now.toLocaleTimeString() + " on " + now.toLocaleDateString());
-},
 upButtonClick: function(inSender) {
 try {
 var thisControl = inSender.parent;
@@ -20,11 +16,8 @@ console.error('ERROR IN upButtonClick: ' + e);
 },
 customerDojoGrid1GridButtonClick: function(inSender, fieldName, rowData, rowIndex) {
 inSender.setSelectedRow(rowIndex);
-this.layer3.activate();
 this.customerEditLiveForm1.beginDataUpdate();
-},
-customerDojoGrid1Select: function(inSender) {
-this.layer2.activate();
+this.layer3.activate();
 },
 customerEditLiveForm1BeforeServiceCall: function(inSender, inOperation, inData) {
 if(inData.zip.toString().length!=5){
@@ -35,15 +28,20 @@ throw new Error("Abort");
 },
 AddItemBttonClick: function(inSender) {
 var name = this.newItemtext.getDataValue();
+//component names will autoincrement if duplicated, same as in studio
 var panelName = "panel" + name;
 var labelName = "label" + name;
 var caption = "Item " + name;
 var buttonName = "button" + name;
-this.ItemListPanel.createComponent(panelName , "wm.Panel",{"height":"46px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"middle","width":"400px"}, {}, {
+this.ItemListPanel.createComponent(panelName , "wm.Panel",{"height":"46px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"middle","width":"100%"}, {}, {
 labelName: ["wm.Label", {"align":"center","caption":caption,"padding":"4"}, {}],
 upButtonName: ["wm.Button", {"caption":"Move Up","margin":"4"}, {"onclick":"upButtonClick"}]
 });
 this.ItemListPanel.reflow();
+},
+loadTimeLabelReadOnlyNodeFormat: function(inSender, inValue) {
+var now = new Date();
+return("Application loaded at: " + now.toLocaleTimeString() + " on " + now.toLocaleDateString());
 },
 _end: 0
 });
@@ -87,18 +85,18 @@ customerCancelButton: ["wm.Button", {"caption":"Cancel","height":"100%","margin"
 }]
 }],
 layoutBox1: ["wm.Layout", {"horizontalAlign":"center","layoutKind":"left-to-right","preferredDevice":"desktop","verticalAlign":"top"}, {}, {
-panel3: ["wm.Panel", {"height":"100%","horizontalAlign":"left","minHeight":600,"minWidth":900,"verticalAlign":"top","width":"75%"}, {}, {
+panel3: ["wm.Panel", {"height":"100%","horizontalAlign":"center","minHeight":600,"minWidth":900,"verticalAlign":"top","width":"75%"}, {}, {
 panel1: ["wm.HeaderContentPanel", {"border":"0,0,1,0","borderColor":"#333333","height":"65px","horizontalAlign":"left","layoutKind":"left-to-right","padding":"0,10","verticalAlign":"middle","width":"100%"}, {}, {
 picture1: ["wm.Picture", {"height":"50px","source":"lib/wm/base/widget/themes/default/images/wmLogo.png","width":"62px"}, {}],
-label3: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_20px","wm_FontSizePx_24px"]},"caption":"Chapter 11 - Mastering Client Customization","display":undefined,"height":"35px","padding":"4","width":"646px"}, {}],
-panel5: ["wm.Panel", {"height":"100%","horizontalAlign":"right","verticalAlign":"middle","width":"100%"}, {}, {
+label3: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_20px","wm_FontSizePx_24px"]},"caption":"Mastering Client Customization","display":undefined,"height":"35px","padding":"4","width":"100%"}, {}],
+panel5: ["wm.Panel", {"height":"100%","horizontalAlign":"right","verticalAlign":"middle","width":"320px"}, {}, {
 dojoMenu1: ["wm.DojoMenu", {"fullStructure":[{"label":"Help"},{"label":"About"},{"label":"Logout","onClick":"varTemplateLogout"}],"height":"24px","localizationStructure":{},"transparent":true,"width":"250px"}, {}]
 }]
 }],
-panel2: ["wm.MainContentPanel", {"height":"100%","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
+panel2: ["wm.MainContentPanel", {"height":"100%","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
 tabLayers1: ["wm.TabLayers", {}, {}, {
 layer1: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"Customers","horizontalAlign":"left","padding":"10","verticalAlign":"top"}, {}, {
-customerDojoGrid1: ["wm.DojoGrid", {"columns":[{"show":false,"field":"custid","title":"Custid","width":"80px","align":"right","formatFunc":"","mobileColumn":false},{"show":true,"field":"company","title":"Company","width":"100%","align":"left","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"address","title":"Address","width":"100%","align":"left","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"city","title":"City","width":"100%","align":"left","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"state","title":"State","width":"100px","align":"left","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"zip","title":"Zip","width":"100%","align":"left","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"imageurl","title":"Imageurl","width":"80px","align":"center","formatFunc":"wm_image_formatter","formatProps":{"width":80,"height":80},"editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"twitter","title":"Twitter","width":"100%","align":"left","formatFunc":"wm_link_formatter","formatProps":{"prefix":"http://twitter.com/"},"editorProps":{"restrictValues":true},"expression":"\"@\" + ${twitter}","mobileColumn":false},{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","editorProps":{"restrictValues":true},"expression":"\"<div class='MobileRowTitle'>Company: \" + ${company} + \"</div>\"\n+ \"<div class='MobileRow'>Address: \" + ${address} + \"</div>\"\n+ \"<div class='MobileRow'>City: \" + ${city} + \"</div>\"\n+ \"<div class='MobileRow'>State: \" + ${state} + \"</div>\"\n+ \"<div class='MobileRow'>Zip: \" + ${zip} + \"</div>\"\n+ \"<div class='MobileRow'>Imageurl: \" + wm.List.prototype.imageFormatter({\"width\":80,\"height\":80}, null,null,null,${imageurl}) + \"</div>\"\n","mobileColumn":true},{"show":true,"field":"Edit","title":"Edit","width":"80%","align":"center","formatFunc":"wm_button_formatter","editorProps":{"restrictValues":true},"expression":"\"Update \" + ${company}","isCustomField":true,"mobileColumn":false}],"dsType":"com.custpurchasedb.data.Customer","height":"100%","margin":"4","minDesktopHeight":60}, {"onGridButtonClick":"customerDojoGrid1GridButtonClick","onSelect":"customerDojoGrid1Select"}, {
+customerDojoGrid1: ["wm.DojoGrid", {"columns":[{"show":false,"field":"custid","title":"Custid","width":"80px","align":"right","formatFunc":"","mobileColumn":false},{"show":true,"field":"company","title":"Company","width":"100%","align":"left","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"address","title":"Address","width":"100%","align":"left","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"city","title":"City","width":"100%","align":"left","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"state","title":"State","width":"100px","align":"left","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"zip","title":"Zip","width":"100%","align":"left","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"imageurl","title":"Imageurl","width":"80px","align":"center","formatFunc":"wm_image_formatter","formatProps":{"width":80,"height":80},"editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"twitter","title":"Twitter","width":"100%","align":"left","formatFunc":"wm_link_formatter","formatProps":{"prefix":"http://twitter.com/"},"editorProps":{"restrictValues":true},"expression":"\"@\" + ${twitter}","mobileColumn":false},{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","editorProps":{"restrictValues":true},"expression":"\"<div class='MobileRowTitle'>Company: \" + ${company} + \"</div>\"\n+ \"<div class='MobileRow'>Address: \" + ${address} + \"</div>\"\n+ \"<div class='MobileRow'>City: \" + ${city} + \"</div>\"\n+ \"<div class='MobileRow'>State: \" + ${state} + \"</div>\"\n+ \"<div class='MobileRow'>Zip: \" + ${zip} + \"</div>\"\n+ \"<div class='MobileRow'>Imageurl: \" + wm.List.prototype.imageFormatter({\"width\":80,\"height\":80}, null,null,null,${imageurl}) + \"</div>\"\n","mobileColumn":true},{"show":true,"field":"Edit","title":"Edit","width":"80%","align":"center","formatFunc":"wm_button_formatter","editorProps":{"restrictValues":true},"expression":"\"Update \" + ${company}","isCustomField":true,"mobileColumn":false}],"dsType":"com.custpurchasedb.data.Customer","height":"100%","localizationStructure":{},"margin":"4","minDesktopHeight":60}, {"onGridButtonClick":"customerDojoGrid1GridButtonClick","onSelect":"lineitemLiveVariable1","onSelect1":"layer2"}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"customerLiveVariable1","targetProperty":"dataSet"}, {}]
 }]
@@ -155,28 +153,28 @@ wire: ["wm.Wire", {"expression":undefined,"source":"customerEditLiveForm1EditPan
 }]
 }],
 layer4: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"Dynamic Content","horizontalAlign":"center","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
-AddItemBttonPanel: ["wm.Panel", {"height":"32px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"middle","width":"400px"}, {}, {
-newItemtext: ["wm.Text", {"caption":"Item Name","dataValue":"","displayValue":"","required":true}, {}],
+AddItemBttonPanel: ["wm.Panel", {"height":"32px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"middle","width":"100%"}, {}, {
+newItemtext: ["wm.Text", {"caption":"Item Name","dataValue":undefined,"displayValue":"","required":true}, {}],
 AddItemBtton: ["wm.Button", {"caption":"Add Item","margin":"4"}, {"onclick":"AddItemBttonClick"}]
 }],
 ItemListPanel: ["wm.Panel", {"height":"100%","horizontalAlign":"center","verticalAlign":"top","width":"100%"}, {}, {
-panel4: ["wm.Panel", {"height":"46px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"middle","width":"400px"}, {}, {
+panel4: ["wm.Panel", {"height":"46px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"middle","width":"100%"}, {}, {
 label6: ["wm.Label", {"align":"center","caption":"Item 1","padding":"4"}, {}],
 upButton1: ["wm.Button", {"caption":"Move Up","margin":"4"}, {"onclick":"upButtonClick"}]
 }],
-panel7: ["wm.Panel", {"height":"46px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"middle","width":"400px"}, {}, {
+panel7: ["wm.Panel", {"height":"46px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"middle","width":"100%"}, {}, {
 label7: ["wm.Label", {"align":"center","caption":"Item 2","padding":"4"}, {}],
 upButton2: ["wm.Button", {"caption":"Move Up","margin":"4"}, {"onclick":"upButtonClick"}]
 }],
-panel8: ["wm.Panel", {"height":"46px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"middle","width":"400px"}, {}, {
+panel8: ["wm.Panel", {"height":"46px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"middle","width":"100%"}, {}, {
 label8: ["wm.Label", {"align":"center","caption":"Item 3","padding":"4"}, {}],
 upButton3: ["wm.Button", {"caption":"Move Up","margin":"4"}, {"onclick":"upButtonClick"}]
 }],
-panel9: ["wm.Panel", {"height":"46px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"middle","width":"400px"}, {}, {
+panel9: ["wm.Panel", {"height":"46px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"middle","width":"100%"}, {}, {
 label9: ["wm.Label", {"align":"center","caption":"Item 4","padding":"4"}, {}],
 upButton4: ["wm.Button", {"caption":"Move Up","margin":"4"}, {"onclick":"upButtonClick"}]
 }],
-panel10: ["wm.Panel", {"height":"46px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"middle","width":"400px"}, {}, {
+panel10: ["wm.Panel", {"height":"46px","horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"middle","width":"100%"}, {}, {
 label10: ["wm.Label", {"align":"center","caption":"Item 5","padding":"4"}, {}],
 upButton5: ["wm.Button", {"caption":"Move Up","margin":"4"}, {"onclick":"upButtonClick"}]
 }]
@@ -186,9 +184,9 @@ upButton5: ["wm.Button", {"caption":"Move Up","margin":"4"}, {"onclick":"upButto
 }],
 panel6: ["wm.HeaderContentPanel", {"height":"24px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
 picture2: ["wm.Picture", {"height":"100%","source":"lib/wm/base/widget/themes/default/images/wmSmallLogo.png","width":"24px"}, {}],
-label2: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_10px"]},"caption":"Powered by WaveMaker","height":"100%","padding":"4"}, {}],
-label5: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_20px"]},"align":"center","caption":"Date and Time Go HERE","display":"label5ReadOnlyNodeFormat","height":"100%","padding":"4","width":"200%"}, {}],
-label1: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_10px"]},"align":"right","caption":"Copyright 2012 [company name]","height":"100%","padding":"4","width":"100%"}, {}]
+label2: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_10px"]},"caption":"Powered by WaveMaker","height":"100%","padding":"4","width":"160px"}, {}],
+loadTimeLabel: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_20px"]},"align":"center","caption":"Date and Time Go HERE","display":"loadTimeLabelReadOnlyNodeFormat","height":"100%","padding":"4","width":"200%"}, {}],
+label1: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_10px"]},"align":"right","caption":"Copyright 2012 [company name]","height":"100%","padding":"4","width":"50%"}, {}]
 }]
 }]
 }]
