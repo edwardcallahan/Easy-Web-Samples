@@ -1,0 +1,10 @@
+{
+	"methods": [{
+		"name": "sampleJavaOperation",
+		"operationType": null,
+		"parameters": null,
+		"returnType": "java.lang.String"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "SecureDbSvc.json"
+}
