@@ -1,9 +1,42 @@
 {
 	"methods": [{
-		"name": "sampleJavaOperation",
+		"name": "deleteCustomer",
 		"operationType": null,
-		"parameters": null,
-		"returnType": "java.lang.String"
+		"parameters": [{
+			"name": "customer",
+			"type": "com.custpurchasedb.data.Customer"
+		}],
+		"returnType": null
+	}, {
+		"name": "insertCustomer",
+		"operationType": null,
+		"parameters": [{
+			"name": "customer",
+			"type": "com.custpurchasedb.data.Customer"
+		}],
+		"returnType": "com.custpurchasedb.data.Customer"
+	}, {
+		"name": "readCustomer",
+		"operationType": null,
+		"parameters": [{
+			"name": "customer",
+			"type": "com.custpurchasedb.data.Customer"
+		}, {
+			"name": "propertyOptions",
+			"type": "com.wavemaker.runtime.service.PropertyOptions"
+		}, {
+			"name": "pagingOptions",
+			"type": "com.wavemaker.runtime.service.PagingOptions"
+		}],
+		"returnType": "[com.custpurchasedb.data.Customer]"
+	}, {
+		"name": "updateCustomer",
+		"operationType": null,
+		"parameters": [{
+			"name": "customer",
+			"type": "com.custpurchasedb.data.Customer"
+		}],
+		"returnType": "com.custpurchasedb.data.Customer"
 	}],
 	"serviceType": "JSON-RPC",
 	"serviceURL": "SecureDbSvc.json"

@@ -2,7 +2,6 @@
 package com.hrdb;
 
 import java.util.List;
-import com.hrdb.data.Department;
 import com.wavemaker.json.type.TypeDefinition;
 import com.wavemaker.runtime.data.DataServiceManager;
 import com.wavemaker.runtime.data.DataServiceManagerAccess;
@@ -15,7 +14,7 @@ import com.wavemaker.runtime.service.TypedServiceReturn;
 
 /**
  *  Operations for service "hrdb"
- *  03/13/2013 11:10:36
+ *  03/13/2013 16:39:08
  * 
  */
 @SuppressWarnings("unchecked")
@@ -26,8 +25,8 @@ public class Hrdb
     private DataServiceManager dsMgr;
     private TaskManager taskMgr;
 
-    public Department getDepartmentById(Integer id) {
-        List<Department> rtn = ((List<Department> ) dsMgr.invoke(taskMgr.getQueryTask(), (HrdbConstants.getDepartmentByIdQueryName), id));
+    public com.hrdb.data.Department getDepartmentById(Integer id, PagingOptions pagingOptions) {
+        List<com.hrdb.data.Department> rtn = ((List<com.hrdb.data.Department> ) dsMgr.invoke(taskMgr.getQueryTask(), (HrdbConstants.getDepartmentByIdQueryName), id, pagingOptions));
         if (rtn.isEmpty()) {
             return null;
         } else {

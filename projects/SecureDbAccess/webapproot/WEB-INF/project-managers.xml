@@ -4,7 +4,10 @@
         <property name="types">
             <map merge="true">
                 <entry key="SecureDbSvc">
-                    <list/>
+                    <list>
+                        <value>com.wavemaker.runtime.service.PropertyOptions</value>
+                        <value>com.wavemaker.runtime.service.PagingOptions</value>
+                    </list>
                 </entry>
                 <entry key="custpurchaseDB">
                     <list>

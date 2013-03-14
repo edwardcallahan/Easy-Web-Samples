@@ -675,6 +675,110 @@ wm.types = {
 			"liveService": true,
 			"service": "hrdb"
 		},
+		"com.wavemaker.runtime.service.PagingOptions": {
+			"fields": {
+				"firstResult": {
+					"exclude": [],
+					"fieldOrder": 0,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Long"
+				},
+				"maxResults": {
+					"exclude": [],
+					"fieldOrder": 1,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Long"
+				},
+				"orderBy": {
+					"exclude": [],
+					"fieldOrder": 2,
+					"fieldSubType": null,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"orderByList": {
+					"exclude": [],
+					"fieldOrder": 3,
+					"fieldSubType": null,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "com.wavemaker.runtime.service.OrderBy"
+				}
+			},
+			"internal": false,
+			"liveService": false,
+			"service": "SecureDbSvc"
+		},
+		"com.wavemaker.runtime.service.PropertyOptions": {
+			"fields": {
+				"filterList": {
+					"exclude": [],
+					"fieldOrder": 0,
+					"fieldSubType": null,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "com.wavemaker.runtime.service.Filter"
+				},
+				"filters": {
+					"exclude": [],
+					"fieldOrder": 1,
+					"fieldSubType": null,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"ignoreCase": {
+					"exclude": [],
+					"fieldOrder": 4,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "boolean"
+				},
+				"matchMode": {
+					"exclude": [],
+					"fieldOrder": 2,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"properties": {
+					"exclude": [],
+					"fieldOrder": 3,
+					"fieldSubType": null,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				}
+			},
+			"internal": false,
+			"liveService": false,
+			"service": "SecureDbSvc"
+		},
 		"double": {
 			"internal": true,
 			"primitiveType": "Number"

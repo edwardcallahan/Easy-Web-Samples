@@ -2,7 +2,6 @@
 package com.custpurchasedb;
 
 import java.util.List;
-import com.custpurchasedb.data.Cpuser;
 import com.wavemaker.json.type.TypeDefinition;
 import com.wavemaker.runtime.data.DataServiceManager;
 import com.wavemaker.runtime.data.DataServiceManagerAccess;
@@ -15,7 +14,7 @@ import com.wavemaker.runtime.service.TypedServiceReturn;
 
 /**
  *  Operations for service "custpurchaseDB"
- *  03/13/2013 11:10:11
+ *  03/13/2013 16:39:08
  * 
  */
 @SuppressWarnings("unchecked")
@@ -26,8 +25,8 @@ public class CustpurchaseDB
     private DataServiceManager dsMgr;
     private TaskManager taskMgr;
 
-    public Cpuser getCpuserById(String id) {
-        List<Cpuser> rtn = ((List<Cpuser> ) dsMgr.invoke(taskMgr.getQueryTask(), (CustpurchaseDBConstants.getCpuserByIdQueryName), id));
+    public com.custpurchasedb.data.Cpuser getCpuserById(String id, PagingOptions pagingOptions) {
+        List<com.custpurchasedb.data.Cpuser> rtn = ((List<com.custpurchasedb.data.Cpuser> ) dsMgr.invoke(taskMgr.getQueryTask(), (CustpurchaseDBConstants.getCpuserByIdQueryName), id, pagingOptions));
         if (rtn.isEmpty()) {
             return null;
         } else {
