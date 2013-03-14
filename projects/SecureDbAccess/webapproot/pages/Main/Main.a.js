@@ -3,6 +3,12 @@ start: function() {
 this.customerLiveForm1.liveSaving = false;
 },
 "preferredDevice": "desktop",
+svareCustomerSuccess: function(inSender, inDeprecated) {
+this.svarReadCustomer.update();
+},
+svarCustomerError: function(inSender, inError) {
+app.toastError(inError)
+},
 _end: 0
 });
 
@@ -13,24 +19,24 @@ input: ["wm.ServiceInput", {"type":"logoutInputs"}, {}]
 customerLiveVariable1: ["wm.LiveVariable", {"autoUpdate":false,"startUpdate":false,"type":"com.custpurchasedb.data.Customer"}, {}, {
 liveView: ["wm.LiveView", {"dataType":"com.custpurchasedb.data.Customer","view":[{"caption":"Custid","sortable":true,"dataIndex":"custid","type":"java.lang.Integer","displayType":"Number","required":true,"readonly":true,"includeLists":true,"includeForms":true,"order":0,"subType":null},{"caption":"Company","sortable":true,"dataIndex":"company","type":"java.lang.String","displayType":"Text","required":true,"readonly":false,"includeLists":true,"includeForms":true,"order":1,"subType":null},{"caption":"Address","sortable":true,"dataIndex":"address","type":"java.lang.String","displayType":"Text","required":false,"readonly":false,"includeLists":true,"includeForms":true,"order":2,"subType":null},{"caption":"City","sortable":true,"dataIndex":"city","type":"java.lang.String","displayType":"Text","required":false,"readonly":false,"includeLists":true,"includeForms":true,"order":3,"subType":null},{"caption":"State","sortable":true,"dataIndex":"state","type":"java.lang.String","displayType":"Text","required":false,"readonly":false,"includeLists":true,"includeForms":true,"order":4,"subType":null},{"caption":"Zip","sortable":true,"dataIndex":"zip","type":"java.lang.String","displayType":"Text","required":false,"readonly":false,"includeLists":true,"includeForms":true,"order":5,"subType":null},{"caption":"Imageurl","sortable":true,"dataIndex":"imageurl","type":"java.lang.String","displayType":"Text","required":false,"readonly":false,"includeLists":true,"includeForms":true,"order":6,"subType":null},{"caption":"Twitter","sortable":true,"dataIndex":"twitter","type":"java.lang.String","displayType":"Text","required":false,"readonly":false,"includeLists":true,"includeForms":true,"order":7,"subType":null}]}, {}]
 }],
-svarReadCustomer: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"readCustomer","service":"SecureDbSvc","startUpdate":true}, {}, {
+svarReadCustomer: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"readCustomer","service":"SecureDbSvc","startUpdate":true}, {"onError":"svarCustomerError"}, {
 input: ["wm.ServiceInput", {"type":"readCustomerInputs"}, {}]
 }],
-svarDeleteCustomer: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"deleteCustomer","service":"SecureDbSvc"}, {}, {
+svarDeleteCustomer: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"deleteCustomer","service":"SecureDbSvc"}, {"onError":"svarCustomerError","onSuccess":"svareCustomerSuccess"}, {
 input: ["wm.ServiceInput", {"type":"deleteCustomerInputs"}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"customerLiveForm1.dataOutput","targetProperty":"customer"}, {}]
 }]
 }]
 }],
-svarInsertCustomer: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"insertCustomer","service":"SecureDbSvc"}, {}, {
+svarInsertCustomer: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"insertCustomer","service":"SecureDbSvc"}, {"onError":"svarCustomerError","onSuccess":"svareCustomerSuccess"}, {
 input: ["wm.ServiceInput", {"type":"insertCustomerInputs"}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"customerLiveForm1.dataOutput","targetProperty":"customer"}, {}]
 }]
 }]
 }],
-svarUpdateCustomer: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"updateCustomer","service":"SecureDbSvc"}, {}, {
+svarUpdateCustomer: ["wm.ServiceVariable", {"inFlightBehavior":"executeLast","operation":"updateCustomer","service":"SecureDbSvc"}, {"onError":"svarCustomerError","onSuccess":"svareCustomerSuccess"}, {
 input: ["wm.ServiceInput", {"type":"updateCustomerInputs"}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"customerLiveForm1.dataOutput","targetProperty":"customer"}, {}]
@@ -38,19 +44,19 @@ wire: ["wm.Wire", {"expression":undefined,"source":"customerLiveForm1.dataOutput
 }]
 }],
 layoutBox1: ["wm.Layout", {"horizontalAlign":"center","layoutKind":"left-to-right","preferredDevice":"desktop","verticalAlign":"top"}, {}, {
-panel3: ["wm.Panel", {"height":"100%","horizontalAlign":"left","minHeight":600,"minWidth":900,"verticalAlign":"top","width":"75%"}, {}, {
+panel3: ["wm.Panel", {"height":"100%","horizontalAlign":"left","minHeight":600,"verticalAlign":"top","width":"800px"}, {}, {
 panel1: ["wm.HeaderContentPanel", {"border":"0,0,1,0","borderColor":"#333333","height":"65px","horizontalAlign":"left","layoutKind":"left-to-right","padding":"0,10","verticalAlign":"middle","width":"100%"}, {}, {
 picture1: ["wm.Picture", {"height":"50px","source":"lib/wm/base/widget/themes/default/images/wmLogo.png","width":"62px"}, {}],
-label3: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_20px","wm_FontSizePx_24px"]},"caption":"[Application Name]","height":"35px","padding":"4","width":"100%"}, {}],
+label3: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_20px","wm_FontSizePx_24px"]},"caption":"Secure DB Access","height":"35px","padding":"4","width":"100%"}, {"onclick":"layer1"}],
 panel5: ["wm.Panel", {"height":"100%","horizontalAlign":"right","verticalAlign":"middle","width":"100%"}, {}, {
-dojoMenu1: ["wm.DojoMenu", {"fullStructure":[{"label":"Help"},{"label":"About"},{"label":"Logout","onClick":"varTemplateLogout"}],"height":"24px","localizationStructure":{},"transparent":true,"width":"250px"}, {}]
+dojoMenu1: ["wm.DojoMenu", {"fullStructure":[{"label":"Help"},{"label":"About","onClick":"layer2"},{"label":"Logout","onClick":"varTemplateLogout"}],"height":"24px","localizationStructure":{},"transparent":true,"width":"250px"}, {}]
 }]
 }],
-panel2: ["wm.MainContentPanel", {"height":"100%","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
-tabLayers1: ["wm.TabLayers", {}, {}, {
-layer1: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"Tab 1","horizontalAlign":"left","padding":"10","verticalAlign":"top"}, {}, {
-custpurchaseDBLivePanel: ["wm.LivePanel", {"horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top"}, {}, {
-customerDojoGrid: ["wm.DojoGrid", {"columns":[{"show":false,"field":"custid","title":"Custid","width":"80px","align":"right","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"company","title":"Customer","width":"100%","align":"left","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":true},{"show":false,"field":"address","title":"Address","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"city","title":"City","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"state","title":"State","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"zip","title":"Zip","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"imageurl","title":"Imageurl","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"twitter","title":"Twitter","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"","mobileColumn":false}],"height":"100%","localizationStructure":{},"margin":"4","width":"200px"}, {}, {
+panel2: ["wm.MainContentPanel", {"border":"2","borderColor":"#000000","height":"100%","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
+tabLayers1: ["wm.Layers", {}, {}, {
+layer1: ["wm.Layer", {"borderColor":"","caption":"Tab 1","horizontalAlign":"center","padding":"10","verticalAlign":"top"}, {}, {
+custpurchaseDBLivePanel: ["wm.LivePanel", {"horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"top"}, {}, {
+customerDojoGrid: ["wm.DojoGrid", {"columns":[{"show":false,"field":"custid","title":"Custid","width":"80px","align":"right","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"company","title":"Customer","width":"100%","align":"left","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":true},{"show":false,"field":"address","title":"Address","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"city","title":"City","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"state","title":"State","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"zip","title":"Zip","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"imageurl","title":"Imageurl","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"twitter","title":"Twitter","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"","mobileColumn":false}],"height":"100%","localizationStructure":{},"margin":"4","selectFirstRow":true,"width":"200px"}, {}, {
 binding: ["wm.Binding", {}, {}, {
 wire: ["wm.Wire", {"expression":undefined,"source":"svarReadCustomer","targetProperty":"dataSet"}, {}]
 }]
@@ -94,14 +100,16 @@ wire: ["wm.Wire", {"expression":undefined,"source":"customerLiveForm1EditPanel.f
 }]
 }]
 }],
-layer2: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"Tab 2","horizontalAlign":"left","verticalAlign":"top"}, {}],
-layer3: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"Tab 3","horizontalAlign":"left","verticalAlign":"top"}, {}]
+layer2: ["wm.Layer", {"borderColor":"","caption":"Tab 2","horizontalAlign":"left","verticalAlign":"top"}, {}, {
+html1: ["wm.Html", {"height":"410px","html":"resources/htmlcontent/About_Content.html","minDesktopHeight":15}, {}]
+}],
+layer3: ["wm.Layer", {"borderColor":"","caption":"About","horizontalAlign":"left","verticalAlign":"top"}, {}]
 }]
 }],
 panel6: ["wm.HeaderContentPanel", {"height":"24px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
 picture2: ["wm.Picture", {"height":"100%","source":"lib/wm/base/widget/themes/default/images/wmSmallLogo.png","width":"24px"}, {}],
 label2: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_10px"]},"caption":"Powered by WaveMaker","height":"100%","padding":"4"}, {}],
-label1: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_10px"]},"align":"right","caption":"Copyright 2012 [company name]","height":"100%","padding":"4","width":"100%"}, {}]
+label1: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_10px"]},"align":"right","caption":"Copyright 2013 Edward J Callahan","height":"100%","padding":"4","width":"100%"}, {}]
 }]
 }]
 }]

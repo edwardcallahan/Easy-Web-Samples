@@ -107,7 +107,7 @@ public class SecureDbSvc extends JavaServiceSuperClass {
 		List<String> roles = Arrays.asList(securitySvc.getUserRoles());
 		for(String role : roles){
 			for(String rRole : reqRoles){
-                log(INFO, "Checking " + role + " for " + rRole);
+                log(DEBUG, "Checking " + role + " for " + rRole);
 				if(role.equals(rRole)){
 					return;
 				}

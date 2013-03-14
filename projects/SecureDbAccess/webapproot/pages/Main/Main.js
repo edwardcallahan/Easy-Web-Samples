@@ -4,5 +4,12 @@ dojo.declare("Main", wm.Page, {
 	},
 	"preferredDevice": "desktop",
 
+	svareCustomerSuccess: function(inSender, inDeprecated) {
+        this.svarReadCustomer.update();
+		
+	},
+	svarCustomerError: function(inSender, inError) {
+		app.toastError(inError)
+	},
 	_end: 0
 });

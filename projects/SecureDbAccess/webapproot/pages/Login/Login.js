@@ -14,6 +14,7 @@
 
 
 dojo.declare("Login", wm.Page, {
+	"preferredDevice": "desktop",
     start: function() {
         if (window["PhoneGap"]) {
             this.restorePhonegapCredentials();
