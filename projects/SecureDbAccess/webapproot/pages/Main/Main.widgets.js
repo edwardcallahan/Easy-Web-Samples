@@ -33,14 +33,14 @@ Main.widgets = {
 		panel3: ["wm.Panel", {"height":"100%","horizontalAlign":"left","minHeight":600,"verticalAlign":"top","width":"800px"}, {}, {
 			panel1: ["wm.HeaderContentPanel", {"border":"0,0,1,0","borderColor":"#333333","height":"65px","horizontalAlign":"left","layoutKind":"left-to-right","padding":"0,10","verticalAlign":"middle","width":"100%"}, {}, {
 				picture1: ["wm.Picture", {"height":"50px","source":"lib/wm/base/widget/themes/default/images/wmLogo.png","width":"62px"}, {}],
-				label3: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_20px","wm_FontSizePx_24px"]},"caption":"Secure DB Access","height":"35px","padding":"4","width":"100%"}, {"onclick":"layer1"}],
+				label3: ["wm.Label", {"_classes":{"domNode":["wm_FontSizePx_20px","wm_FontSizePx_24px"]},"caption":"Secure DB Access","height":"35px","padding":"4","width":"100%"}, {"onclick":"layerMain"}],
 				panel5: ["wm.Panel", {"height":"100%","horizontalAlign":"right","verticalAlign":"middle","width":"100%"}, {}, {
-					dojoMenu1: ["wm.DojoMenu", {"fullStructure":[{"label":"Help"},{"label":"About","onClick":"layer2"},{"label":"Logout","onClick":"varTemplateLogout"}],"height":"24px","localizationStructure":{},"transparent":true,"width":"250px"}, {}]
+					dojoMenu1: ["wm.DojoMenu", {"fullStructure":[{"label":"About","separator":undefined,"defaultLabel":"About","iconClass":undefined,"imageList":undefined,"idInPage":undefined,"isCheckbox":undefined,"onClick":"layerAbout","children":[]},{"label":"Admin","separator":undefined,"defaultLabel":"Admin","iconClass":undefined,"imageList":"app.silkIconList","idInPage":undefined,"isCheckbox":false,"onClick":"layerAdmin","children":[]},{"label":"Logout","separator":undefined,"defaultLabel":"Logout","iconClass":undefined,"imageList":undefined,"idInPage":undefined,"isCheckbox":undefined,"onClick":"varTemplateLogout","children":[]}],"height":"24px","localizationStructure":{},"transparent":true,"width":"250px"}, {}]
 				}]
 			}],
 			panel2: ["wm.MainContentPanel", {"border":"2","borderColor":"#000000","height":"100%","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
 				tabLayers1: ["wm.Layers", {}, {}, {
-					layer1: ["wm.Layer", {"borderColor":"","caption":"Tab 1","horizontalAlign":"center","padding":"10","verticalAlign":"top"}, {}, {
+					layerMain: ["wm.Layer", {"borderColor":"","caption":"Tab 1","horizontalAlign":"center","padding":"10","verticalAlign":"top"}, {}, {
 						custpurchaseDBLivePanel: ["wm.LivePanel", {"horizontalAlign":"center","layoutKind":"left-to-right","verticalAlign":"top"}, {}, {
 							customerDojoGrid: ["wm.DojoGrid", {"columns":[{"show":false,"field":"custid","title":"Custid","width":"80px","align":"right","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":false},{"show":true,"field":"company","title":"Customer","width":"100%","align":"left","formatFunc":"","editorProps":{"restrictValues":true},"mobileColumn":true},{"show":false,"field":"address","title":"Address","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"city","title":"City","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"state","title":"State","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"zip","title":"Zip","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"imageurl","title":"Imageurl","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"twitter","title":"Twitter","width":"100%","align":"left","formatFunc":"","mobileColumn":false},{"show":false,"field":"PHONE COLUMN","title":"-","width":"100%","align":"left","expression":"","mobileColumn":false}],"height":"100%","localizationStructure":{},"margin":"4","selectFirstRow":true,"width":"200px"}, {}, {
 								binding: ["wm.Binding", {}, {}, {
@@ -86,10 +86,12 @@ Main.widgets = {
 							}]
 						}]
 					}],
-					layer2: ["wm.Layer", {"borderColor":"","caption":"Tab 2","horizontalAlign":"left","verticalAlign":"top"}, {}, {
+					layerAbout: ["wm.Layer", {"borderColor":"","caption":"Tab 2","horizontalAlign":"left","verticalAlign":"top"}, {}, {
 						html1: ["wm.Html", {"height":"410px","html":"resources/htmlcontent/About_Content.html","minDesktopHeight":15}, {}]
 					}],
-					layer3: ["wm.Layer", {"borderColor":"","caption":"About","horizontalAlign":"left","verticalAlign":"top"}, {}]
+					layerAdmin: ["wm.Layer", {"borderColor":"","caption":"About","horizontalAlign":"left","verticalAlign":"top"}, {}, {
+						pageContainerAdmin: ["wm.PageContainer", {"deferLoad":true,"pageName":"AdminPage","subpageEventlist":{},"subpageMethodlist":{},"subpageProplist":{}}, {"onError":"pageContainerAdminError"}]
+					}]
 				}]
 			}],
 			panel6: ["wm.HeaderContentPanel", {"height":"24px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {

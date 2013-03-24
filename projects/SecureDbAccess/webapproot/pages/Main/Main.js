@@ -11,5 +11,8 @@ dojo.declare("Main", wm.Page, {
 	svarCustomerError: function(inSender, inError) {
 		app.toastError(inError)
 	},
+	pageContainerAdminError: function(inSender, inErrorOrMessage) {
+		app.toastError("Unable to display Admin page");
+	},
 	_end: 0
 });

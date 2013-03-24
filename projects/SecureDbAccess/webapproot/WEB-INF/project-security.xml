@@ -78,8 +78,10 @@
                 /*.download=IS_AUTHENTICATED_FULLY
                 /index.html=IS_AUTHENTICATED_FULLY
                 /=IS_AUTHENTICATED_FULLY
+				/data/*=ROLE_nobody
                 /securityservice.json=IS_AUTHENTICATED_ANONYMOUSLY
                 /pages/login/**=IS_AUTHENTICATED_ANONYMOUSLY
+				/pages/adminpage/**=ROLE_adminrole
                 /pages/**=IS_AUTHENTICATED_FULLY
                 /*.json=IS_AUTHENTICATED_FULLY
                 /*/*.json=IS_AUTHENTICATED_FULLY
@@ -188,10 +190,16 @@
             <value>ROLE_</value>
         </property>
     </bean>
+	<!-- The autoProxyCreator and securityInterceptor have been modified by hand to restrict access to SecureDbSvc.deleteCustomer to adminrole -->
     <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator" id="autoProxyCreator">
         <property name="proxyTargetClass">
             <value>true</value>
         </property>
+        <property name="beanNames">
+            <list>
+                <value>SecureDbSvc</value>
+            </list>
+		</property>
         <property name="interceptorNames">
             <list>
                 <value>securityInterceptor</value>
@@ -203,6 +211,7 @@
         <property name="accessDecisionManager" ref="accessDecisionManager"/>
         <property name="objectDefinitionSource">
             <value>
+			com.wavemaker.example.SecureDbSvc.deleteCustomer=ROLE_adminrole
             </value>
         </property>
     </bean>

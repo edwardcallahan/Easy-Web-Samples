@@ -6,7 +6,6 @@ import java.util.List;
 import com.wavemaker.common.WMRuntimeException;
 
 import com.wavemaker.runtime.javaservice.JavaServiceSuperClass;
-//import com.wavemaker.runtime.RuntimeAccess; //not used 
 import com.wavemaker.runtime.service.annotations.ExposeToClient;
 import com.wavemaker.runtime.service.annotations.HideFromClient;
 import com.wavemaker.runtime.service.response.LiveDataServiceResponse;
@@ -26,7 +25,6 @@ public class SecureDbSvc extends JavaServiceSuperClass {
 	private static final String CUSTPURCHASE_DB = "custpurchaseDB";
 	
 	private static final String[] USER_OR_ADMIN_ROLE = {"userrole", "adminrole"};
-	private static final String[] ADMIN_ROLE = {"adminrole"};
 	
 	//Dependency injected services    
 	private RuntimeService runtimeSvc;
@@ -50,6 +48,7 @@ public class SecureDbSvc extends JavaServiceSuperClass {
 			}
 			TypedServiceReturn tsrCustomer = runtimeSvc.read(CUSTPURCHASE_DB, COM_CUSTPURCHASEDB_DATA_CUSTOMER,customer,propertyOptions, pagingOptions);
 			ldsResponse = (LiveDataServiceResponse)tsrCustomer.getReturnValue();
+			//Following cast causes Warning: Type safety: Unchecked cast from Object to List
 			customers = (List<Customer>)ldsResponse.getResult();
 			} catch(Exception e) {
 			log(ERROR, "There was a problem updating customer");
@@ -92,7 +91,8 @@ public class SecureDbSvc extends JavaServiceSuperClass {
 	}
 
 	public void deleteCustomer(Customer customer){
-		roleCheck(ADMIN_ROLE);
+		//role restriction to deleteCustomer is being handled by manual modification of the
+		//autoProxyCreator and securityInterceptor beans in project-security.xml
 		log(INFO, "Deleting customer for user: " + securitySvc.getUserName());
 		try {
 			runtimeSvc.delete(CUSTPURCHASE_DB, COM_CUSTPURCHASEDB_DATA_CUSTOMER, customer);
