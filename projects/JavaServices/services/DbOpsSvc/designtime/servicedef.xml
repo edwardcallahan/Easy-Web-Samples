@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="DbOpsSvc" class="com.wavemaker.example.DbOpsSvc" CRUDService="false" type="JavaService" springFile="DbOpsSvc.spring.xml">
+    <operation name="updateCustomer">
+        <parameter name="customer" typeRef="com.custpurchasedb.data.Customer" isList="false"/>
+        <return typeRef="com.custpurchasedb.data.Customer" isList="false"/>
+    </operation>
+    <operation name="updateCustomerInjected">
+        <parameter name="customer" typeRef="com.custpurchasedb.data.Customer" isList="false"/>
+        <return typeRef="com.custpurchasedb.data.Customer" isList="false"/>
+    </operation>
+    <dataobjects/>
+</service>

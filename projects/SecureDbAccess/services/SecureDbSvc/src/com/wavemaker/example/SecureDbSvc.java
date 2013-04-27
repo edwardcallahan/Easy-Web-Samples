@@ -61,10 +61,10 @@ public class SecureDbSvc extends JavaServiceSuperClass {
 		roleCheck(USER_OR_ADMIN_ROLE);	
 		Customer updatedCustomer  = null;
 		log(INFO, "Updating customer for user: " + securitySvc.getUserName());
+        if(customer.getState().length() != 2){
+			throw new RuntimeException("Invalid State length. Must be 2 digits only.");
+		}
 		try{
-			if(customer.getState().length() != 2){
-				throw new RuntimeException("Invalid State length. Must be 2 digits only.");
-			}
 			//Use zero for index when calling update from java service
 			TypedServiceReturn tsrCustomer = runtimeSvc.update(CUSTPURCHASE_DB, COM_CUSTPURCHASEDB_DATA_CUSTOMER,customer,0);
 			updatedCustomer = (Customer)tsrCustomer.getReturnValue();
