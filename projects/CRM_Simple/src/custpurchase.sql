@@ -105,36 +105,6 @@ INSERT INTO `item` VALUES (1,'Crossing the Chasm','17.99'),(2,'Kidnapped','12.99
 UNLOCK TABLES;
 
 --
--- Table structure for table `lineitem`
---
-
-DROP TABLE IF EXISTS `lineitem`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `lineitem` (
-  `lineitemid` int(11) NOT NULL AUTO_INCREMENT,
-  `orderid` int(11) NOT NULL,
-  `itemid` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`lineitemid`),
-  KEY `orderidindex` (`orderid`),
-  KEY `itemidindex` (`itemid`),
-  CONSTRAINT `FK_relitem` FOREIGN KEY (`itemid`) REFERENCES `item` (`itemid`),
-  CONSTRAINT `FK_relorder` FOREIGN KEY (`orderid`) REFERENCES `purchase` (`orderid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `lineitem`
---
-
-LOCK TABLES `lineitem` WRITE;
-/*!40000 ALTER TABLE `lineitem` DISABLE KEYS */;
-INSERT INTO `lineitem` VALUES (1,1,1,2),(2,1,3,1),(3,1,4,3),(4,1,7,4),(5,1,8,3),(6,1,9,1),(7,1,10,5),(8,2,1,5),(9,3,2,2),(10,4,2,2),(11,4,3,1),(12,5,1,1),(13,5,7,1),(14,6,3,1),(15,6,9,2),(16,7,2,1),(17,7,6,2),(18,8,3,2),(19,8,4,1),(20,9,2,2),(21,9,10,1),(22,10,4,1),(23,10,10,3),(24,11,8,1),(25,11,9,2),(26,12,4,1),(27,12,7,2),(28,13,7,2),(29,13,9,1),(30,14,5,1),(31,14,8,21),(32,15,2,1),(33,15,7,2),(34,16,2,1),(35,16,8,1),(36,17,2,1),(37,17,5,8),(38,18,3,3),(39,18,4,1),(40,18,6,1),(41,18,9,1),(42,18,10,2),(43,19,1,3),(44,19,8,2),(45,20,1,1),(46,20,2,3),(47,20,3,4),(48,20,4,1),(49,20,5,3),(50,20,6,1),(51,20,7,3),(52,20,8,4),(53,20,9,5),(54,20,10,3);
-/*!40000 ALTER TABLE `lineitem` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `purchase`
 --
 
@@ -170,5 +140,35 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+--
+-- Table structure for table `lineitem`
+--
+
+DROP TABLE IF EXISTS `lineitem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `lineitem` (
+  `lineitemid` int(11) NOT NULL AUTO_INCREMENT,
+  `orderid` int(11) NOT NULL,
+  `itemid` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`lineitemid`),
+  KEY `orderidindex` (`orderid`),
+  KEY `itemidindex` (`itemid`),
+  CONSTRAINT `FK_relitem` FOREIGN KEY (`itemid`) REFERENCES `item` (`itemid`),
+  CONSTRAINT `FK_relorder` FOREIGN KEY (`orderid`) REFERENCES `purchase` (`orderid`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lineitem`
+--
+
+LOCK TABLES `lineitem` WRITE;
+/*!40000 ALTER TABLE `lineitem` DISABLE KEYS */;
+INSERT INTO `lineitem` VALUES (1,1,1,2),(2,1,3,1),(3,1,4,3),(4,1,7,4),(5,1,8,3),(6,1,9,1),(7,1,10,5),(8,2,1,5),(9,3,2,2),(10,4,2,2),(11,4,3,1),(12,5,1,1),(13,5,7,1),(14,6,3,1),(15,6,9,2),(16,7,2,1),(17,7,6,2),(18,8,3,2),(19,8,4,1),(20,9,2,2),(21,9,10,1),(22,10,4,1),(23,10,10,3),(24,11,8,1),(25,11,9,2),(26,12,4,1),(27,12,7,2),(28,13,7,2),(29,13,9,1),(30,14,5,1),(31,14,8,21),(32,15,2,1),(33,15,7,2),(34,16,2,1),(35,16,8,1),(36,17,2,1),(37,17,5,8),(38,18,3,3),(39,18,4,1),(40,18,6,1),(41,18,9,1),(42,18,10,2),(43,19,1,3),(44,19,8,2),(45,20,1,1),(46,20,2,3),(47,20,3,4),(48,20,4,1),(49,20,5,3),(50,20,6,1),(51,20,7,3),(52,20,8,4),(53,20,9,5),(54,20,10,3);
+/*!40000 ALTER TABLE `lineitem` ENABLE KEYS */;
+UNLOCK TABLES;
 
 -- Dump completed on 2012-12-02 13:06:37
