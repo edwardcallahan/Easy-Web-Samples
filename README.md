@@ -1,9 +1,9 @@
 Easy-Web-Samples
 ================
 
-Easy Web Dev with WaveMaker Sample Projects
+These are the example projects that accompany the book [Easy Web Development with WaveMaker](http://www.packtpub.com/easy-web-development-with-wavemaker-6-5/book).
 
-These projects are for use with WaveMaker 6.5. The latest version of WaveMaker 6.5.X can be found at:
+These projects were developed and tested with WaveMaker 6.5.3. The latest version of WaveMaker 6.5.X can be found at:
 https://github.com/SpringSource/wavemaker/tree/6.5.X
 
 To run these samples in your studio installation, clone this repo
